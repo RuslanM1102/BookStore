@@ -32,25 +32,4 @@ namespace BookStore
                 MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes) == MessageBoxResult.No;
         }
     }
-
-    public class DateTimeViewModel : INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private string _currentDateTime;
-        public string CurrentDateTime
-        {
-            get => _currentDateTime;
-            set
-            {
-                _currentDateTime = value;
-                OnPropertyChanged(nameof(CurrentDateTime));
-            }
-        }
-    }
 }

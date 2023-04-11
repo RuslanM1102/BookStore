@@ -1,4 +1,3 @@
-C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\BookStore.csproj.AssemblyReference.cache
 C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\MainWindow.g.cs
 C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\Pages\AuthorizationPage.g.cs
 C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\Pages\RegistrationPage.g.cs
@@ -17,7 +16,6 @@ C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\BookStore.g.resources
 C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\BookStore.Properties.Resources.resources
 C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\BookStore.csproj.GenerateResource.cache
 C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\BookStore.csproj.CoreCompileInputs.cache
-C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\MainMenu.g.cs
 C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\BookStore_Content.g.cs
 C:\Users\206934\source\repos\BookStore\BookStore\bin\Debug\EntityFramework.dll
 C:\Users\206934\source\repos\BookStore\BookStore\bin\Debug\EntityFramework.SqlServer.dll
@@ -25,4 +23,10 @@ C:\Users\206934\source\repos\BookStore\BookStore\bin\Debug\EntityFramework.xml
 C:\Users\206934\source\repos\BookStore\BookStore\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\206934\source\repos\BookStore\BookStore\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\206934\source\repos\BookStore\BookStore\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
-C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\MainMenu.baml
+C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\Styles\Dictionary.baml
+C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\Pages\MainMenu.g.cs
+C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\App.baml
+C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\Pages\MainMenu.baml
+C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\Styles\DarkTheme.baml
+C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\Styles\LightTheme.baml
+C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\BookStore.csproj.AssemblyReference.cache

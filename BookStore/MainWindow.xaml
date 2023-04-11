@@ -7,7 +7,26 @@
         xmlns:local="clr-namespace:BookStore"
         mc:Ignorable="d"
         Title="BookStore" Height="700" Width="500" ResizeMode="NoResize">
-    <Grid>
-
+    <Grid Background="{StaticResource ResourceKey=DefaultBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                 Height="100" Width="500" Style="{StaticResource DefaultTextBox}"></TextBox>
+        <PasswordBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                 Height="100" Width="500" Style="{StaticResource DefaultPasswordBox}"></PasswordBox>
+        <Button x:Name="ChangePasswordButton" Style="{StaticResource DefaultButton}" Grid.Row="3" Grid.Column="1"
+                HorizontalAlignment="Center" VerticalAlignment="Top" Height="45" Width="240" FontSize="24">Сменить пароль</Button>
+        <Button x:Name="AuthButton" Style="{StaticResource DefaultButton}" Grid.Row="4" Grid.Column="1"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="500">Авторизоваться</Button>
     </Grid>
 </Window>

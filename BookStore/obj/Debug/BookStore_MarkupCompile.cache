@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\206934\source\repos\BookStore\BookStore\App.xaml
-4902922393
+71989555555
 21757058111
-33-1610921780
+331443779172
 181224036962
-MainMenu.xaml;MainWindow.xaml;Pages\AuthorizationPage.xaml;Pages\RegistrationPage.xaml;
+Pages\MainMenu.xaml;MainWindow.xaml;Pages\AuthorizationPage.xaml;Pages\RegistrationPage.xaml;Styles\Dictionary.xaml;Styles\DarkTheme.xaml;Styles\LightTheme.xaml;
 
 False
 

@@ -79,15 +79,86 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DatabaseModels\Accounts.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Authors.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Banks.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseModels\BookStoreModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BookStoreModel.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseModels\BookStoreModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseModels\BookStoreModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BookStoreModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Cities.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Contracts.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Counteragents.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\DiscountCards.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Formats.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Genres.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Nomenclature.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\OrderParts.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Orders.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Positions.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Publishers.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Regions.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Requisites.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\SellParts.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Sells.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\ShipmentParts.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Shipments.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Staff.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\Statuses.cs">
+      <DependentUpon>BookStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
@@ -152,6 +223,10 @@
     <Content Include="DatabaseModels\BookStoreModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>BookStoreModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DatabaseModels\BookStoreModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BookStoreModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

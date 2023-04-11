@@ -19,11 +19,7 @@ namespace BookStore
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DispatcherTimer timer = new DispatcherTimer();
 
-            timer.Tick += new EventHandler((s, ee) => ((DateTimeViewModel)DataContext).CurrentDateTime = DateTime.Now.ToString("dd.MM.yyyy, HH:mm:ss"));
-            timer.Interval = new TimeSpan(0, 0, 1);
-            timer.Start();
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)

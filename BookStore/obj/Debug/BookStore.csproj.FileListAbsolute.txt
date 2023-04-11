@@ -19,3 +19,10 @@ C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\BookStore.csproj.Gene
 C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\BookStore.csproj.CoreCompileInputs.cache
 C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\MainMenu.g.cs
 C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\BookStore_Content.g.cs
+C:\Users\206934\source\repos\BookStore\BookStore\bin\Debug\EntityFramework.dll
+C:\Users\206934\source\repos\BookStore\BookStore\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\206934\source\repos\BookStore\BookStore\bin\Debug\EntityFramework.xml
+C:\Users\206934\source\repos\BookStore\BookStore\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\206934\source\repos\BookStore\BookStore\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\206934\source\repos\BookStore\BookStore\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\MainMenu.baml

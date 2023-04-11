@@ -1,0 +1,1728 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище BookStoreModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Authors">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="Banks">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contracts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Counteragents">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="RegionID" Type="int" Nullable="false" />
+          <Property Name="CityID" Type="int" Nullable="false" />
+          <Property Name="Street" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="House" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Apartment" Type="nvarchar" MaxLength="4" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="KPP" Type="decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="INN" Type="decimal" Precision="12" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Counteragents_Contracts">
+          <Key>
+            <PropertyRef Name="Counteragents_ID" />
+            <PropertyRef Name="Contracts_ID" />
+          </Key>
+          <Property Name="Counteragents_ID" Type="int" Nullable="false" />
+          <Property Name="Contracts_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DiscountCards">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Discount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Formats">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genres">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nomenclature">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ReleaseDate" Type="date" Nullable="false" />
+          <Property Name="Pages" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="AuthorID" Type="int" Nullable="false" />
+          <Property Name="GenreID" Type="int" Nullable="false" />
+          <Property Name="FormatID" Type="int" Nullable="false" />
+          <Property Name="PublisherID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nomenclature_Authors">
+          <Key>
+            <PropertyRef Name="Nomenclature_AuthorID" />
+            <PropertyRef Name="Authors_ID" />
+          </Key>
+          <Property Name="Nomenclature_AuthorID" Type="int" Nullable="false" />
+          <Property Name="Authors_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nomenclature_Genres">
+          <Key>
+            <PropertyRef Name="Nomenclature_GenreID" />
+            <PropertyRef Name="Genres_ID" />
+          </Key>
+          <Property Name="Nomenclature_GenreID" Type="int" Nullable="false" />
+          <Property Name="Genres_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderParts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="NomenclatureID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="80" />
+          <Property Name="RegionID" Type="int" Nullable="false" />
+          <Property Name="CityID" Type="int" Nullable="false" />
+          <Property Name="Street" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="House" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Apartment" Type="nvarchar" MaxLength="4" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="StatusID" Type="int" Nullable="false" />
+          <Property Name="DiscountID" Type="int" />
+        </EntityType>
+        <EntityType Name="Positions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Salary" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Publishers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Requisites">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CorAccount" Type="decimal" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="BIC" Type="decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="Counteragents_ID" Type="int" Nullable="false" />
+          <Property Name="BankID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SellParts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SellID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="NomenclatureID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sells">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SellDate" Type="datetime" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="DiscountID" Type="int" />
+          <Property Name="AccountID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShipmentParts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShipmentID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="NomenclatureID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shipments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="CounteragentID" Type="int" Nullable="false" />
+          <Property Name="ContractID" Type="int" Nullable="false" />
+          <Property Name="StatusID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="80" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="Birthday" Type="date" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="INN" Type="decimal" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="AccountID" Type="int" Nullable="false" />
+          <Property Name="PositionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Statuses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Counterag__Contr__4D94879B">
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="1" />
+          <End Role="Counteragents_Contracts" Type="Self.Counteragents_Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contracts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Counteragents_Contracts">
+              <PropertyRef Name="Contracts_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Counterag__Count__4CA06362">
+          <End Role="Counteragents" Type="Self.Counteragents" Multiplicity="1" />
+          <End Role="Counteragents_Contracts" Type="Self.Counteragents_Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Counteragents">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Counteragents_Contracts">
+              <PropertyRef Name="Counteragents_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Nomenclat__Autho__5629CD9C">
+          <End Role="Authors" Type="Self.Authors" Multiplicity="1" />
+          <End Role="Nomenclature_Authors" Type="Self.Nomenclature_Authors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authors">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Nomenclature_Authors">
+              <PropertyRef Name="Authors_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Nomenclat__Forma__5AEE82B9">
+          <End Role="Formats" Type="Self.Formats" Multiplicity="1" />
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formats">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Nomenclature">
+              <PropertyRef Name="FormatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Nomenclat__Genre__59FA5E80">
+          <End Role="Genres" Type="Self.Genres" Multiplicity="1" />
+          <End Role="Nomenclature_Genres" Type="Self.Nomenclature_Genres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genres">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Nomenclature_Genres">
+              <PropertyRef Name="Genres_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Nomenclat__Publi__5BE2A6F2">
+          <End Role="Publishers" Type="Self.Publishers" Multiplicity="1" />
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publishers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Nomenclature">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderPart__Nomen__5FB337D6">
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="1" />
+          <End Role="OrderParts" Type="Self.OrderParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nomenclature">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderParts">
+              <PropertyRef Name="NomenclatureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Discount__5EBF139D">
+          <End Role="DiscountCards" Type="Self.DiscountCards" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiscountCards">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="DiscountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requisite__BankI__48CFD27E">
+          <End Role="Banks" Type="Self.Banks" Multiplicity="1" />
+          <End Role="Requisites" Type="Self.Requisites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banks">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Requisites">
+              <PropertyRef Name="BankID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sells__AccountID__628FA481">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="Sells" Type="Self.Sells" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sells">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sells__DiscountI__619B8048">
+          <End Role="DiscountCards" Type="Self.DiscountCards" Multiplicity="0..1" />
+          <End Role="Sells" Type="Self.Sells" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiscountCards">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sells">
+              <PropertyRef Name="DiscountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShipmentP__Nomen__52593CB8">
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="1" />
+          <End Role="ShipmentParts" Type="Self.ShipmentParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nomenclature">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ShipmentParts">
+              <PropertyRef Name="NomenclatureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Shipments__Contr__4F7CD00D">
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="1" />
+          <End Role="Shipments" Type="Self.Shipments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contracts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shipments">
+              <PropertyRef Name="ContractID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Shipments__Count__4E88ABD4">
+          <End Role="Counteragents" Type="Self.Counteragents" Multiplicity="1" />
+          <End Role="Shipments" Type="Self.Shipments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Counteragents">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shipments">
+              <PropertyRef Name="CounteragentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Shipments__Statu__5165187F">
+          <End Role="Statuses" Type="Self.Statuses" Multiplicity="1" />
+          <End Role="Shipments" Type="Self.Shipments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shipments">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Staff__PositionI__6477ECF3">
+          <End Role="Positions" Type="Self.Positions" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Counteragents_Cities">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Counteragents" Type="Self.Counteragents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Counteragents">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Counteragents_Regions">
+          <End Role="Regions" Type="Self.Regions" Multiplicity="1" />
+          <End Role="Counteragents" Type="Self.Counteragents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Counteragents">
+              <PropertyRef Name="RegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nomenclature_Authors_Nomenclature">
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="1" />
+          <End Role="Nomenclature_Authors" Type="Self.Nomenclature_Authors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nomenclature">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Nomenclature_Authors">
+              <PropertyRef Name="Nomenclature_AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nomenclature_Genres_Nomenclature">
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="1" />
+          <End Role="Nomenclature_Genres" Type="Self.Nomenclature_Genres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nomenclature">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Nomenclature_Genres">
+              <PropertyRef Name="Nomenclature_GenreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderParts_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrderParts" Type="Self.OrderParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderParts">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Cities">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Regions">
+          <End Role="Regions" Type="Self.Regions" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="RegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Statuses">
+          <End Role="Statuses" Type="Self.Statuses" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Requisites_Counteragents">
+          <End Role="Counteragents" Type="Self.Counteragents" Multiplicity="1" />
+          <End Role="Requisites" Type="Self.Requisites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Counteragents">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Requisites">
+              <PropertyRef Name="Counteragents_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SellParts_Nomenclature">
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="1" />
+          <End Role="SellParts" Type="Self.SellParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nomenclature">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SellParts">
+              <PropertyRef Name="NomenclatureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SellParts_Sells">
+          <End Role="Sells" Type="Self.Sells" Multiplicity="1" />
+          <End Role="SellParts" Type="Self.SellParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sells">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SellParts">
+              <PropertyRef Name="SellID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShipmentParts_Shipments">
+          <End Role="Shipments" Type="Self.Shipments" Multiplicity="1" />
+          <End Role="ShipmentParts" Type="Self.ShipmentParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shipments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ShipmentParts">
+              <PropertyRef Name="ShipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище BookStoreModelContainer">
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Banks" EntityType="Self.Banks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contracts" EntityType="Self.Contracts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Counteragents" EntityType="Self.Counteragents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Counteragents_Contracts" EntityType="Self.Counteragents_Contracts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiscountCards" EntityType="Self.DiscountCards" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Formats" EntityType="Self.Formats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nomenclature" EntityType="Self.Nomenclature" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nomenclature_Authors" EntityType="Self.Nomenclature_Authors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nomenclature_Genres" EntityType="Self.Nomenclature_Genres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderParts" EntityType="Self.OrderParts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Positions" EntityType="Self.Positions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Publishers" EntityType="Self.Publishers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Requisites" EntityType="Self.Requisites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SellParts" EntityType="Self.SellParts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sells" EntityType="Self.Sells" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShipmentParts" EntityType="Self.ShipmentParts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shipments" EntityType="Self.Shipments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statuses" EntityType="Self.Statuses" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Counterag__Contr__4D94879B" Association="Self.FK__Counterag__Contr__4D94879B">
+            <End Role="Contracts" EntitySet="Contracts" />
+            <End Role="Counteragents_Contracts" EntitySet="Counteragents_Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Counterag__Count__4CA06362" Association="Self.FK__Counterag__Count__4CA06362">
+            <End Role="Counteragents" EntitySet="Counteragents" />
+            <End Role="Counteragents_Contracts" EntitySet="Counteragents_Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Nomenclat__Autho__5629CD9C" Association="Self.FK__Nomenclat__Autho__5629CD9C">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="Nomenclature_Authors" EntitySet="Nomenclature_Authors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Nomenclat__Forma__5AEE82B9" Association="Self.FK__Nomenclat__Forma__5AEE82B9">
+            <End Role="Formats" EntitySet="Formats" />
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Nomenclat__Genre__59FA5E80" Association="Self.FK__Nomenclat__Genre__59FA5E80">
+            <End Role="Genres" EntitySet="Genres" />
+            <End Role="Nomenclature_Genres" EntitySet="Nomenclature_Genres" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Nomenclat__Publi__5BE2A6F2" Association="Self.FK__Nomenclat__Publi__5BE2A6F2">
+            <End Role="Publishers" EntitySet="Publishers" />
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderPart__Nomen__5FB337D6" Association="Self.FK__OrderPart__Nomen__5FB337D6">
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+            <End Role="OrderParts" EntitySet="OrderParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Discount__5EBF139D" Association="Self.FK__Orders__Discount__5EBF139D">
+            <End Role="DiscountCards" EntitySet="DiscountCards" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requisite__BankI__48CFD27E" Association="Self.FK__Requisite__BankI__48CFD27E">
+            <End Role="Banks" EntitySet="Banks" />
+            <End Role="Requisites" EntitySet="Requisites" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sells__AccountID__628FA481" Association="Self.FK__Sells__AccountID__628FA481">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Sells" EntitySet="Sells" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sells__DiscountI__619B8048" Association="Self.FK__Sells__DiscountI__619B8048">
+            <End Role="DiscountCards" EntitySet="DiscountCards" />
+            <End Role="Sells" EntitySet="Sells" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShipmentP__Nomen__52593CB8" Association="Self.FK__ShipmentP__Nomen__52593CB8">
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+            <End Role="ShipmentParts" EntitySet="ShipmentParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Shipments__Contr__4F7CD00D" Association="Self.FK__Shipments__Contr__4F7CD00D">
+            <End Role="Contracts" EntitySet="Contracts" />
+            <End Role="Shipments" EntitySet="Shipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Shipments__Count__4E88ABD4" Association="Self.FK__Shipments__Count__4E88ABD4">
+            <End Role="Counteragents" EntitySet="Counteragents" />
+            <End Role="Shipments" EntitySet="Shipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Shipments__Statu__5165187F" Association="Self.FK__Shipments__Statu__5165187F">
+            <End Role="Statuses" EntitySet="Statuses" />
+            <End Role="Shipments" EntitySet="Shipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Staff__PositionI__6477ECF3" Association="Self.FK__Staff__PositionI__6477ECF3">
+            <End Role="Positions" EntitySet="Positions" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Counteragents_Cities" Association="Self.FK_Counteragents_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Counteragents" EntitySet="Counteragents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Counteragents_Regions" Association="Self.FK_Counteragents_Regions">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Counteragents" EntitySet="Counteragents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nomenclature_Authors_Nomenclature" Association="Self.FK_Nomenclature_Authors_Nomenclature">
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+            <End Role="Nomenclature_Authors" EntitySet="Nomenclature_Authors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nomenclature_Genres_Nomenclature" Association="Self.FK_Nomenclature_Genres_Nomenclature">
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+            <End Role="Nomenclature_Genres" EntitySet="Nomenclature_Genres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderParts_Orders" Association="Self.FK_OrderParts_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderParts" EntitySet="OrderParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Cities" Association="Self.FK_Orders_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Regions" Association="Self.FK_Orders_Regions">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Statuses" Association="Self.FK_Orders_Statuses">
+            <End Role="Statuses" EntitySet="Statuses" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Requisites_Counteragents" Association="Self.FK_Requisites_Counteragents">
+            <End Role="Counteragents" EntitySet="Counteragents" />
+            <End Role="Requisites" EntitySet="Requisites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SellParts_Nomenclature" Association="Self.FK_SellParts_Nomenclature">
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+            <End Role="SellParts" EntitySet="SellParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SellParts_Sells" Association="Self.FK_SellParts_Sells">
+            <End Role="Sells" EntitySet="Sells" />
+            <End Role="SellParts" EntitySet="SellParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShipmentParts_Shipments" Association="Self.FK_ShipmentParts_Shipments">
+            <End Role="Shipments" EntitySet="Shipments" />
+            <End Role="ShipmentParts" EntitySet="ShipmentParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Accounts" Association="Self.FK_Staff_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BookStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Sells" Relationship="Self.FK__Sells__AccountID__628FA481" FromRole="Accounts" ToRole="Sells" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_Accounts" FromRole="Accounts" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Authors">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Nomenclature" Relationship="Self.Nomenclature_Authors" FromRole="Authors" ToRole="Nomenclature" />
+        </EntityType>
+        <EntityType Name="Banks">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Requisites" Relationship="Self.FK__Requisite__BankI__48CFD27E" FromRole="Banks" ToRole="Requisites" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Counteragents" Relationship="Self.FK_Counteragents_Cities" FromRole="Cities" ToRole="Counteragents" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Cities" FromRole="Cities" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Contracts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Shipments" Relationship="Self.FK__Shipments__Contr__4F7CD00D" FromRole="Contracts" ToRole="Shipments" />
+          <NavigationProperty Name="Counteragents" Relationship="Self.Counteragents_Contracts" FromRole="Contracts" ToRole="Counteragents" />
+        </EntityType>
+        <EntityType Name="Counteragents">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegionID" Type="Int32" Nullable="false" />
+          <Property Name="CityID" Type="Int32" Nullable="false" />
+          <Property Name="Street" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="House" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Apartment" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KPP" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="INN" Type="Decimal" Precision="12" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_Counteragents_Cities" FromRole="Counteragents" ToRole="Cities" />
+          <NavigationProperty Name="Shipments" Relationship="Self.FK__Shipments__Count__4E88ABD4" FromRole="Counteragents" ToRole="Shipments" />
+          <NavigationProperty Name="Regions" Relationship="Self.FK_Counteragents_Regions" FromRole="Counteragents" ToRole="Regions" />
+          <NavigationProperty Name="Requisites" Relationship="Self.FK_Requisites_Counteragents" FromRole="Counteragents" ToRole="Requisites" />
+          <NavigationProperty Name="Contracts" Relationship="Self.Counteragents_Contracts" FromRole="Counteragents" ToRole="Contracts" />
+        </EntityType>
+        <EntityType Name="DiscountCards">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Discount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Discount__5EBF139D" FromRole="DiscountCards" ToRole="Orders" />
+          <NavigationProperty Name="Sells" Relationship="Self.FK__Sells__DiscountI__619B8048" FromRole="DiscountCards" ToRole="Sells" />
+        </EntityType>
+        <EntityType Name="Formats">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Nomenclature" Relationship="Self.FK__Nomenclat__Forma__5AEE82B9" FromRole="Formats" ToRole="Nomenclature" />
+        </EntityType>
+        <EntityType Name="Genres">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Nomenclature" Relationship="Self.Nomenclature_Genres" FromRole="Genres" ToRole="Nomenclature" />
+        </EntityType>
+        <EntityType Name="Nomenclature">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReleaseDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Pages" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="AuthorID" Type="Int32" Nullable="false" />
+          <Property Name="GenreID" Type="Int32" Nullable="false" />
+          <Property Name="FormatID" Type="Int32" Nullable="false" />
+          <Property Name="PublisherID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Formats" Relationship="Self.FK__Nomenclat__Forma__5AEE82B9" FromRole="Nomenclature" ToRole="Formats" />
+          <NavigationProperty Name="Publishers" Relationship="Self.FK__Nomenclat__Publi__5BE2A6F2" FromRole="Nomenclature" ToRole="Publishers" />
+          <NavigationProperty Name="OrderParts" Relationship="Self.FK__OrderPart__Nomen__5FB337D6" FromRole="Nomenclature" ToRole="OrderParts" />
+          <NavigationProperty Name="ShipmentParts" Relationship="Self.FK__ShipmentP__Nomen__52593CB8" FromRole="Nomenclature" ToRole="ShipmentParts" />
+          <NavigationProperty Name="SellParts" Relationship="Self.FK_SellParts_Nomenclature" FromRole="Nomenclature" ToRole="SellParts" />
+          <NavigationProperty Name="Authors" Relationship="Self.Nomenclature_Authors" FromRole="Nomenclature" ToRole="Authors" />
+          <NavigationProperty Name="Genres" Relationship="Self.Nomenclature_Genres" FromRole="Nomenclature" ToRole="Genres" />
+        </EntityType>
+        <EntityType Name="OrderParts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="NomenclatureID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Nomenclature" Relationship="Self.FK__OrderPart__Nomen__5FB337D6" FromRole="OrderParts" ToRole="Nomenclature" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_OrderParts_Orders" FromRole="OrderParts" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="RegionID" Type="Int32" Nullable="false" />
+          <Property Name="CityID" Type="Int32" Nullable="false" />
+          <Property Name="Street" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="House" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Apartment" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <Property Name="DiscountID" Type="Int32" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_Orders_Cities" FromRole="Orders" ToRole="Cities" />
+          <NavigationProperty Name="DiscountCards" Relationship="Self.FK__Orders__Discount__5EBF139D" FromRole="Orders" ToRole="DiscountCards" />
+          <NavigationProperty Name="OrderParts" Relationship="Self.FK_OrderParts_Orders" FromRole="Orders" ToRole="OrderParts" />
+          <NavigationProperty Name="Regions" Relationship="Self.FK_Orders_Regions" FromRole="Orders" ToRole="Regions" />
+          <NavigationProperty Name="Statuses" Relationship="Self.FK_Orders_Statuses" FromRole="Orders" ToRole="Statuses" />
+        </EntityType>
+        <EntityType Name="Positions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK__Staff__PositionI__6477ECF3" FromRole="Positions" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Publishers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Nomenclature" Relationship="Self.FK__Nomenclat__Publi__5BE2A6F2" FromRole="Publishers" ToRole="Nomenclature" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Counteragents" Relationship="Self.FK_Counteragents_Regions" FromRole="Regions" ToRole="Counteragents" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Regions" FromRole="Regions" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Requisites">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CorAccount" Type="Decimal" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="BIC" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="Counteragents_ID" Type="Int32" Nullable="false" />
+          <Property Name="BankID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Banks" Relationship="Self.FK__Requisite__BankI__48CFD27E" FromRole="Requisites" ToRole="Banks" />
+          <NavigationProperty Name="Counteragents" Relationship="Self.FK_Requisites_Counteragents" FromRole="Requisites" ToRole="Counteragents" />
+        </EntityType>
+        <EntityType Name="SellParts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SellID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="NomenclatureID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Nomenclature" Relationship="Self.FK_SellParts_Nomenclature" FromRole="SellParts" ToRole="Nomenclature" />
+          <NavigationProperty Name="Sells" Relationship="Self.FK_SellParts_Sells" FromRole="SellParts" ToRole="Sells" />
+        </EntityType>
+        <EntityType Name="Sells">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SellDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Total" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="DiscountID" Type="Int32" />
+          <Property Name="AccountID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK__Sells__AccountID__628FA481" FromRole="Sells" ToRole="Accounts" />
+          <NavigationProperty Name="DiscountCards" Relationship="Self.FK__Sells__DiscountI__619B8048" FromRole="Sells" ToRole="DiscountCards" />
+          <NavigationProperty Name="SellParts" Relationship="Self.FK_SellParts_Sells" FromRole="Sells" ToRole="SellParts" />
+        </EntityType>
+        <EntityType Name="ShipmentParts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShipmentID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="NomenclatureID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Nomenclature" Relationship="Self.FK__ShipmentP__Nomen__52593CB8" FromRole="ShipmentParts" ToRole="Nomenclature" />
+          <NavigationProperty Name="Shipments" Relationship="Self.FK_ShipmentParts_Shipments" FromRole="ShipmentParts" ToRole="Shipments" />
+        </EntityType>
+        <EntityType Name="Shipments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Total" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="CounteragentID" Type="Int32" Nullable="false" />
+          <Property Name="ContractID" Type="Int32" Nullable="false" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Contracts" Relationship="Self.FK__Shipments__Contr__4F7CD00D" FromRole="Shipments" ToRole="Contracts" />
+          <NavigationProperty Name="Counteragents" Relationship="Self.FK__Shipments__Count__4E88ABD4" FromRole="Shipments" ToRole="Counteragents" />
+          <NavigationProperty Name="ShipmentParts" Relationship="Self.FK_ShipmentParts_Shipments" FromRole="Shipments" ToRole="ShipmentParts" />
+          <NavigationProperty Name="Statuses" Relationship="Self.FK__Shipments__Statu__5165187F" FromRole="Shipments" ToRole="Statuses" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INN" Type="Decimal" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="AccountID" Type="Int32" Nullable="false" />
+          <Property Name="PositionID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Staff_Accounts" FromRole="Staff" ToRole="Accounts" />
+          <NavigationProperty Name="Positions" Relationship="Self.FK__Staff__PositionI__6477ECF3" FromRole="Staff" ToRole="Positions" />
+        </EntityType>
+        <EntityType Name="Statuses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Statuses" FromRole="Statuses" ToRole="Orders" />
+          <NavigationProperty Name="Shipments" Relationship="Self.FK__Shipments__Statu__5165187F" FromRole="Statuses" ToRole="Shipments" />
+        </EntityType>
+        <Association Name="FK__Sells__AccountID__628FA481">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="Sells" Type="Self.Sells" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sells">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requisite__BankI__48CFD27E">
+          <End Role="Banks" Type="Self.Banks" Multiplicity="1" />
+          <End Role="Requisites" Type="Self.Requisites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banks">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Requisites">
+              <PropertyRef Name="BankID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Counteragents_Cities">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Counteragents" Type="Self.Counteragents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Counteragents">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Cities">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Shipments__Contr__4F7CD00D">
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="1" />
+          <End Role="Shipments" Type="Self.Shipments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contracts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shipments">
+              <PropertyRef Name="ContractID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Shipments__Count__4E88ABD4">
+          <End Role="Counteragents" Type="Self.Counteragents" Multiplicity="1" />
+          <End Role="Shipments" Type="Self.Shipments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Counteragents">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shipments">
+              <PropertyRef Name="CounteragentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Counteragents_Regions">
+          <End Role="Regions" Type="Self.Regions" Multiplicity="1" />
+          <End Role="Counteragents" Type="Self.Counteragents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Counteragents">
+              <PropertyRef Name="RegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Requisites_Counteragents">
+          <End Role="Counteragents" Type="Self.Counteragents" Multiplicity="1" />
+          <End Role="Requisites" Type="Self.Requisites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Counteragents">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Requisites">
+              <PropertyRef Name="Counteragents_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Discount__5EBF139D">
+          <End Role="DiscountCards" Type="Self.DiscountCards" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiscountCards">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="DiscountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sells__DiscountI__619B8048">
+          <End Role="DiscountCards" Type="Self.DiscountCards" Multiplicity="0..1" />
+          <End Role="Sells" Type="Self.Sells" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiscountCards">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sells">
+              <PropertyRef Name="DiscountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Nomenclat__Forma__5AEE82B9">
+          <End Role="Formats" Type="Self.Formats" Multiplicity="1" />
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formats">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Nomenclature">
+              <PropertyRef Name="FormatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Nomenclat__Publi__5BE2A6F2">
+          <End Role="Publishers" Type="Self.Publishers" Multiplicity="1" />
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publishers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Nomenclature">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderPart__Nomen__5FB337D6">
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="1" />
+          <End Role="OrderParts" Type="Self.OrderParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nomenclature">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderParts">
+              <PropertyRef Name="NomenclatureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShipmentP__Nomen__52593CB8">
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="1" />
+          <End Role="ShipmentParts" Type="Self.ShipmentParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nomenclature">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ShipmentParts">
+              <PropertyRef Name="NomenclatureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SellParts_Nomenclature">
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="1" />
+          <End Role="SellParts" Type="Self.SellParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nomenclature">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SellParts">
+              <PropertyRef Name="NomenclatureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderParts_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrderParts" Type="Self.OrderParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderParts">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Regions">
+          <End Role="Regions" Type="Self.Regions" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="RegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Statuses">
+          <End Role="Statuses" Type="Self.Statuses" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Staff__PositionI__6477ECF3">
+          <End Role="Positions" Type="Self.Positions" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SellParts_Sells">
+          <End Role="Sells" Type="Self.Sells" Multiplicity="1" />
+          <End Role="SellParts" Type="Self.SellParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sells">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SellParts">
+              <PropertyRef Name="SellID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShipmentParts_Shipments">
+          <End Role="Shipments" Type="Self.Shipments" Multiplicity="1" />
+          <End Role="ShipmentParts" Type="Self.ShipmentParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shipments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ShipmentParts">
+              <PropertyRef Name="ShipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Shipments__Statu__5165187F">
+          <End Role="Statuses" Type="Self.Statuses" Multiplicity="1" />
+          <End Role="Shipments" Type="Self.Shipments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shipments">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Counteragents_Contracts">
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+          <End Role="Counteragents" Type="Self.Counteragents" Multiplicity="*" />
+        </Association>
+        <Association Name="Nomenclature_Authors">
+          <End Role="Authors" Type="Self.Authors" Multiplicity="*" />
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="*" />
+        </Association>
+        <Association Name="Nomenclature_Genres">
+          <End Role="Genres" Type="Self.Genres" Multiplicity="*" />
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="BookStoreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" />
+          <EntitySet Name="Authors" EntityType="Self.Authors" />
+          <EntitySet Name="Banks" EntityType="Self.Banks" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" />
+          <EntitySet Name="Contracts" EntityType="Self.Contracts" />
+          <EntitySet Name="Counteragents" EntityType="Self.Counteragents" />
+          <EntitySet Name="DiscountCards" EntityType="Self.DiscountCards" />
+          <EntitySet Name="Formats" EntityType="Self.Formats" />
+          <EntitySet Name="Genres" EntityType="Self.Genres" />
+          <EntitySet Name="Nomenclature" EntityType="Self.Nomenclature" />
+          <EntitySet Name="OrderParts" EntityType="Self.OrderParts" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="Positions" EntityType="Self.Positions" />
+          <EntitySet Name="Publishers" EntityType="Self.Publishers" />
+          <EntitySet Name="Regions" EntityType="Self.Regions" />
+          <EntitySet Name="Requisites" EntityType="Self.Requisites" />
+          <EntitySet Name="SellParts" EntityType="Self.SellParts" />
+          <EntitySet Name="Sells" EntityType="Self.Sells" />
+          <EntitySet Name="ShipmentParts" EntityType="Self.ShipmentParts" />
+          <EntitySet Name="Shipments" EntityType="Self.Shipments" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" />
+          <EntitySet Name="Statuses" EntityType="Self.Statuses" />
+          <AssociationSet Name="FK__Sells__AccountID__628FA481" Association="Self.FK__Sells__AccountID__628FA481">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Sells" EntitySet="Sells" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Accounts" Association="Self.FK_Staff_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requisite__BankI__48CFD27E" Association="Self.FK__Requisite__BankI__48CFD27E">
+            <End Role="Banks" EntitySet="Banks" />
+            <End Role="Requisites" EntitySet="Requisites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Counteragents_Cities" Association="Self.FK_Counteragents_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Counteragents" EntitySet="Counteragents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Cities" Association="Self.FK_Orders_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Shipments__Contr__4F7CD00D" Association="Self.FK__Shipments__Contr__4F7CD00D">
+            <End Role="Contracts" EntitySet="Contracts" />
+            <End Role="Shipments" EntitySet="Shipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Shipments__Count__4E88ABD4" Association="Self.FK__Shipments__Count__4E88ABD4">
+            <End Role="Counteragents" EntitySet="Counteragents" />
+            <End Role="Shipments" EntitySet="Shipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Counteragents_Regions" Association="Self.FK_Counteragents_Regions">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Counteragents" EntitySet="Counteragents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Requisites_Counteragents" Association="Self.FK_Requisites_Counteragents">
+            <End Role="Counteragents" EntitySet="Counteragents" />
+            <End Role="Requisites" EntitySet="Requisites" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Discount__5EBF139D" Association="Self.FK__Orders__Discount__5EBF139D">
+            <End Role="DiscountCards" EntitySet="DiscountCards" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sells__DiscountI__619B8048" Association="Self.FK__Sells__DiscountI__619B8048">
+            <End Role="DiscountCards" EntitySet="DiscountCards" />
+            <End Role="Sells" EntitySet="Sells" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Nomenclat__Forma__5AEE82B9" Association="Self.FK__Nomenclat__Forma__5AEE82B9">
+            <End Role="Formats" EntitySet="Formats" />
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Nomenclat__Publi__5BE2A6F2" Association="Self.FK__Nomenclat__Publi__5BE2A6F2">
+            <End Role="Publishers" EntitySet="Publishers" />
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderPart__Nomen__5FB337D6" Association="Self.FK__OrderPart__Nomen__5FB337D6">
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+            <End Role="OrderParts" EntitySet="OrderParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShipmentP__Nomen__52593CB8" Association="Self.FK__ShipmentP__Nomen__52593CB8">
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+            <End Role="ShipmentParts" EntitySet="ShipmentParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SellParts_Nomenclature" Association="Self.FK_SellParts_Nomenclature">
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+            <End Role="SellParts" EntitySet="SellParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderParts_Orders" Association="Self.FK_OrderParts_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderParts" EntitySet="OrderParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Regions" Association="Self.FK_Orders_Regions">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Statuses" Association="Self.FK_Orders_Statuses">
+            <End Role="Statuses" EntitySet="Statuses" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Staff__PositionI__6477ECF3" Association="Self.FK__Staff__PositionI__6477ECF3">
+            <End Role="Positions" EntitySet="Positions" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SellParts_Sells" Association="Self.FK_SellParts_Sells">
+            <End Role="Sells" EntitySet="Sells" />
+            <End Role="SellParts" EntitySet="SellParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShipmentParts_Shipments" Association="Self.FK_ShipmentParts_Shipments">
+            <End Role="Shipments" EntitySet="Shipments" />
+            <End Role="ShipmentParts" EntitySet="ShipmentParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Shipments__Statu__5165187F" Association="Self.FK__Shipments__Statu__5165187F">
+            <End Role="Statuses" EntitySet="Statuses" />
+            <End Role="Shipments" EntitySet="Shipments" />
+          </AssociationSet>
+          <AssociationSet Name="Counteragents_Contracts" Association="Self.Counteragents_Contracts">
+            <End Role="Contracts" EntitySet="Contracts" />
+            <End Role="Counteragents" EntitySet="Counteragents" />
+          </AssociationSet>
+          <AssociationSet Name="Nomenclature_Authors" Association="Self.Nomenclature_Authors">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+          </AssociationSet>
+          <AssociationSet Name="Nomenclature_Genres" Association="Self.Nomenclature_Genres">
+            <End Role="Genres" EntitySet="Genres" />
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище BookStoreModelContainer" CdmEntityContainer="BookStoreEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="BookStoreModel.Accounts">
+              <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="BookStoreModel.Authors">
+              <MappingFragment StoreEntitySet="Authors">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banks">
+            <EntityTypeMapping TypeName="BookStoreModel.Banks">
+              <MappingFragment StoreEntitySet="Banks">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="BookStoreModel.Cities">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contracts">
+            <EntityTypeMapping TypeName="BookStoreModel.Contracts">
+              <MappingFragment StoreEntitySet="Contracts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Counteragents">
+            <EntityTypeMapping TypeName="BookStoreModel.Counteragents">
+              <MappingFragment StoreEntitySet="Counteragents">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="House" ColumnName="House" />
+                <ScalarProperty Name="Apartment" ColumnName="Apartment" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="KPP" ColumnName="KPP" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiscountCards">
+            <EntityTypeMapping TypeName="BookStoreModel.DiscountCards">
+              <MappingFragment StoreEntitySet="DiscountCards">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Formats">
+            <EntityTypeMapping TypeName="BookStoreModel.Formats">
+              <MappingFragment StoreEntitySet="Formats">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genres">
+            <EntityTypeMapping TypeName="BookStoreModel.Genres">
+              <MappingFragment StoreEntitySet="Genres">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nomenclature">
+            <EntityTypeMapping TypeName="BookStoreModel.Nomenclature">
+              <MappingFragment StoreEntitySet="Nomenclature">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="Pages" ColumnName="Pages" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="GenreID" ColumnName="GenreID" />
+                <ScalarProperty Name="FormatID" ColumnName="FormatID" />
+                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderParts">
+            <EntityTypeMapping TypeName="BookStoreModel.OrderParts">
+              <MappingFragment StoreEntitySet="OrderParts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="NomenclatureID" ColumnName="NomenclatureID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="BookStoreModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="House" ColumnName="House" />
+                <ScalarProperty Name="Apartment" ColumnName="Apartment" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="DiscountID" ColumnName="DiscountID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="BookStoreModel.Positions">
+              <MappingFragment StoreEntitySet="Positions">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publishers">
+            <EntityTypeMapping TypeName="BookStoreModel.Publishers">
+              <MappingFragment StoreEntitySet="Publishers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="BookStoreModel.Regions">
+              <MappingFragment StoreEntitySet="Regions">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requisites">
+            <EntityTypeMapping TypeName="BookStoreModel.Requisites">
+              <MappingFragment StoreEntitySet="Requisites">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CorAccount" ColumnName="CorAccount" />
+                <ScalarProperty Name="BIC" ColumnName="BIC" />
+                <ScalarProperty Name="Counteragents_ID" ColumnName="Counteragents_ID" />
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SellParts">
+            <EntityTypeMapping TypeName="BookStoreModel.SellParts">
+              <MappingFragment StoreEntitySet="SellParts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SellID" ColumnName="SellID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="NomenclatureID" ColumnName="NomenclatureID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sells">
+            <EntityTypeMapping TypeName="BookStoreModel.Sells">
+              <MappingFragment StoreEntitySet="Sells">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SellDate" ColumnName="SellDate" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="DiscountID" ColumnName="DiscountID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShipmentParts">
+            <EntityTypeMapping TypeName="BookStoreModel.ShipmentParts">
+              <MappingFragment StoreEntitySet="ShipmentParts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ShipmentID" ColumnName="ShipmentID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="NomenclatureID" ColumnName="NomenclatureID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shipments">
+            <EntityTypeMapping TypeName="BookStoreModel.Shipments">
+              <MappingFragment StoreEntitySet="Shipments">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="CounteragentID" ColumnName="CounteragentID" />
+                <ScalarProperty Name="ContractID" ColumnName="ContractID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staff">
+            <EntityTypeMapping TypeName="BookStoreModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statuses">
+            <EntityTypeMapping TypeName="BookStoreModel.Statuses">
+              <MappingFragment StoreEntitySet="Statuses">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Counteragents_Contracts" TypeName="BookStoreModel.Counteragents_Contracts" StoreEntitySet="Counteragents_Contracts">
+            <EndProperty Name="Contracts">
+              <ScalarProperty Name="ID" ColumnName="Contracts_ID" />
+            </EndProperty>
+            <EndProperty Name="Counteragents">
+              <ScalarProperty Name="ID" ColumnName="Counteragents_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Nomenclature_Authors" TypeName="BookStoreModel.Nomenclature_Authors" StoreEntitySet="Nomenclature_Authors">
+            <EndProperty Name="Authors">
+              <ScalarProperty Name="ID" ColumnName="Authors_ID" />
+            </EndProperty>
+            <EndProperty Name="Nomenclature">
+              <ScalarProperty Name="ID" ColumnName="Nomenclature_AuthorID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Nomenclature_Genres" TypeName="BookStoreModel.Nomenclature_Genres" StoreEntitySet="Nomenclature_Genres">
+            <EndProperty Name="Genres">
+              <ScalarProperty Name="ID" ColumnName="Genres_ID" />
+            </EndProperty>
+            <EndProperty Name="Nomenclature">
+              <ScalarProperty Name="ID" ColumnName="Nomenclature_GenreID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

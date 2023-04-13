@@ -6,43 +6,6 @@
     <SolidColorBrush x:Key="DefaultButtonFColor" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="DefaultTextBoxBColor" Color="#C4DBF5"/>
     <SolidColorBrush x:Key="DefaultTextBoxFColor" Color="#000000"/>
+    <SolidColorBrush x:Key="DefaultPlaceHolderColor" Color="DarkSlateBlue"/>
 
-    <Style x:Key="DefaultButton" TargetType="Button">
-        <Setter Property="FontFamily" Value="Averia Libre"/>
-        <Setter Property="FontStyle" Value="Italic"/>
-        <Setter Property="FontSize" Value="30"/>
-        <Setter Property="Background" Value="{StaticResource DefaultButtonBColor}"/>
-        <Setter Property="Foreground" Value="{StaticResource DefaultButtonFColor}"/>
-        <Style.Resources>
-            <Style TargetType="Border">
-                <Setter Property="CornerRadius" Value="3"/>
-            </Style>
-        </Style.Resources>
-    </Style>
-
-    <Style x:Key="DefaultTextBox" TargetType="TextBox">
-        <Setter Property="FontFamily" Value="Averia Libre"/>
-        <Setter Property="FontStyle" Value="Italic"/>
-        <Setter Property="FontSize" Value="30"/>
-        <Setter Property="Background" Value="{StaticResource DefaultTextBoxBColor}"/>
-        <Setter Property="Foreground" Value="{StaticResource DefaultTextBoxFColor}"/>
-        <Style.Resources>
-            <Style TargetType="Border">
-                <Setter Property="CornerRadius" Value="3"/>
-            </Style>
-        </Style.Resources>
-    </Style>
-
-    <Style x:Key="DefaultPasswordBox" TargetType="PasswordBox">
-        <Setter Property="FontFamily" Value="Averia Libre"/>
-        <Setter Property="FontStyle" Value="Italic"/>
-        <Setter Property="FontSize" Value="30"/>
-        <Setter Property="Background" Value="{StaticResource DefaultTextBoxBColor}"/>
-        <Setter Property="Foreground" Value="{StaticResource DefaultTextBoxFColor}"/>
-        <Style.Resources>
-            <Style TargetType="Border">
-                <Setter Property="CornerRadius" Value="3"/>
-            </Style>
-        </Style.Resources>
-    </Style>
 </ResourceDictionary>

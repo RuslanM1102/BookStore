@@ -1,14 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <SolidColorBrush x:Key="DefaultBackground" Color="#684040"/>
+
+    <SolidColorBrush x:Key="DefaultBackground" Color="DimGray"/>
     <SolidColorBrush x:Key="DefaultButtonBColor" Color="#B5B98E"/>
     <SolidColorBrush x:Key="DefaultButtonFColor" Color="#FFFFFF"/>
-
-    <Style x:Key="DefaultButton" TargetType="Button">
-        <Setter Property="Margin" Value="12"/>
-        <Setter Property="FontFamily" Value="Averia Libre"/>
-        <Setter Property="Background" Value="{StaticResource DefaultButtonBColor}"/>
-        <Setter Property="Foreground" Value="{StaticResource DefaultButtonFColor}"/>
-    </Style>
+    <SolidColorBrush x:Key="DefaultTextBoxBColor" Color="#C4DBF5"/>
+    <SolidColorBrush x:Key="DefaultTextBoxFColor" Color="#000000"/>
+    <SolidColorBrush x:Key="DefaultPlaceHolderColor" Color="DodgerBlue"/>
 </ResourceDictionary>

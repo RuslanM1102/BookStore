@@ -20,13 +20,25 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                 Height="100" Width="500" Style="{StaticResource DefaultTextBox}"></TextBox>
-        <PasswordBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                 Height="100" Width="500" Style="{StaticResource DefaultPasswordBox}"></PasswordBox>
-        <Button x:Name="ChangePasswordButton" Style="{StaticResource DefaultButton}" Grid.Row="3" Grid.Column="1"
-                HorizontalAlignment="Center" VerticalAlignment="Top" Height="45" Width="240" FontSize="24">Сменить пароль</Button>
+        <Label Content="BookStore" Grid.Row="0" Grid.Column="1" Style="{StaticResource Header}"/>
+
+        <TextBox x:Name="Login" Grid.Row="1" Grid.Column="1" Height="70" Width="300"
+                 Style="{StaticResource DefaultTextBox}" TextChanged="Login_TextChanged"/>
+        <Label x:Name="LoginPlaceholder" Grid.Row="1" Grid.Column="1" Style="{StaticResource Placeholder}"
+                   Height="70" Width="300" Content="Логин"/>
+        
+        <PasswordBox x:Name="Password" Grid.Row="2" Grid.Column="1" Height="70" Width="300" 
+                     Style="{StaticResource DefaultPasswordBox}" VerticalAlignment="Top" PasswordChanged="Password_PasswordChanged"/>
+        <Label x:Name="PasswordPlaceholder" Grid.Row="2" Grid.Column="1" Style="{StaticResource Placeholder}"
+                   Height="70" Width="300" VerticalAlignment="Top" Content="Пароль"/>
+        <Label></Label>
+
+        <Image Source="AppIcon.ico" Grid.Row="3" Grid.Column="1" Margin="10,15,10,10" VerticalAlignment="Center" MouseDown="Image_MouseDown"/>
+
+        <Button x:Name="ChangePasswordButton" Style="{StaticResource DefaultButton}" Grid.Row="2" Grid.Column="1"
+                HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="45" Width="240" FontSize="24">Сменить пароль</Button>
         <Button x:Name="AuthButton" Style="{StaticResource DefaultButton}" Grid.Row="4" Grid.Column="1"
                 HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="500">Авторизоваться</Button>
+        
     </Grid>
 </Window>

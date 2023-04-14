@@ -6,6 +6,7 @@
     <SolidColorBrush x:Key="DefaultButtonFColor" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="DefaultTextBoxBColor" Color="#C4DBF5"/>
     <SolidColorBrush x:Key="DefaultTextBoxFColor" Color="#000000"/>
-    <SolidColorBrush x:Key="DefaultPlaceHolderColor" Color="DarkSlateBlue"/>
-
+    <SolidColorBrush x:Key="DefaultPlaceHolderColor" Color="#FF517995"/>
+    <DropShadowEffect x:Key="HeaderShadow" Color="DarkSlateBlue" BlurRadius="3" Opacity="1" Direction="0"/>
+    <BitmapImage x:Key="Icon" UriSource="DayIcon.png" />
 </ResourceDictionary>

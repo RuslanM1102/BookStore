@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:BookStore"
         mc:Ignorable="d"
         Title="BookStore" Height="700" Width="500" ResizeMode="NoResize">
-    <Grid Background="{StaticResource ResourceKey=DefaultBackground}">
+    <Grid Background="{DynamicResource DefaultBackground}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="8*"/>
@@ -33,7 +33,7 @@
                    Height="70" Width="300" VerticalAlignment="Top" Content="Пароль"/>
         <Label></Label>
 
-        <Image Source="AppIcon.ico" Grid.Row="3" Grid.Column="1" Margin="10,15,10,10" VerticalAlignment="Center" MouseDown="Image_MouseDown"/>
+        <Image Source="{DynamicResource Icon}" Grid.Row="3" Grid.Column="1" Margin="10,15,10,10" VerticalAlignment="Center" MouseDown="Image_MouseDown"/>
 
         <Button x:Name="ChangePasswordButton" Style="{StaticResource DefaultButton}" Grid.Row="2" Grid.Column="1"
                 HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="45" Width="240" FontSize="24">Сменить пароль</Button>

@@ -41,17 +41,19 @@ namespace BookStore
 
         private void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            var genericTheme = new Uri("Styles/Dictionary.xaml", UriKind.Relative);
             var darkTheme = new Uri("Styles/DarkTheme.xaml", UriKind.Relative);
             var lightTheme = new Uri("Styles/LightTheme.xaml", UriKind.Relative);
 
-            ResourceDictionary resourceDict = Application.LoadComponent(new Uri("Styles/Dictionary.xaml", UriKind.Relative)) as ResourceDictionary;
-            PasswordPlaceholder.Content = resourceDict.MergedDictionaries[0].Source.OriginalString;
+            ResourceDictionary resourceDict = Application.Current.Resources;
             Uri newTheme = resourceDict.MergedDictionaries.Where(x => x.Source.OriginalString == lightTheme.OriginalString).Count() == 1 ? darkTheme : lightTheme;
 
-            resourceDict.MergedDictionaries.Clear();
-            resourceDict.MergedDictionaries.Add(Application.LoadComponent(newTheme) as ResourceDictionary);
+            var mainDictionary = new ResourceDictionary() { Source = genericTheme};
+            var colorDictionary = new ResourceDictionary() { Source = newTheme};
 
-            LoginPlaceholder.Content = newTheme.OriginalString;
+            resourceDict.MergedDictionaries.Clear();
+            resourceDict.MergedDictionaries.Add(mainDictionary);
+            resourceDict.MergedDictionaries.Add(colorDictionary);
         }
     }
 }

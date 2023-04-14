@@ -1,15 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="LightTheme.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
     
     <Style x:Key="DefaultButton" TargetType="Button">
         <Setter Property="FontFamily" Value="Averia Libre"/>
         <Setter Property="FontStyle" Value="Italic"/>
         <Setter Property="FontSize" Value="30"/>
-        <Setter Property="Background" Value="{StaticResource DefaultButtonBColor}"/>
-        <Setter Property="Foreground" Value="{StaticResource DefaultButtonFColor}"/>
+        <Setter Property="Background" Value="{DynamicResource DefaultButtonBColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultButtonFColor}"/>
         <Style.Resources>
             <Style TargetType="Border">
                 <Setter Property="CornerRadius" Value="3"/>
@@ -24,8 +21,8 @@
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="20"/>
-        <Setter Property="Background" Value="{StaticResource DefaultTextBoxBColor}"/>
-        <Setter Property="Foreground" Value="{StaticResource DefaultTextBoxFColor}"/>
+        <Setter Property="Background" Value="{DynamicResource DefaultTextBoxBColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultTextBoxFColor}"/>
         <Style.Resources>
             <Style TargetType="Border">
                 <Setter Property="CornerRadius" Value="3"/>
@@ -40,8 +37,8 @@
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="20"/>
-        <Setter Property="Background" Value="{StaticResource DefaultTextBoxBColor}"/>
-        <Setter Property="Foreground" Value="{StaticResource DefaultTextBoxFColor}"/>
+        <Setter Property="Background" Value="{DynamicResource DefaultTextBoxBColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultTextBoxFColor}"/>
         <Style.Resources>
             <Style TargetType="Border">
                 <Setter Property="CornerRadius" Value="3"/>
@@ -58,11 +55,9 @@
         <Setter Property="Padding" Value="20"/>
         <Setter Property="IsHitTestVisible" Value="False"/>
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource DefaultPlaceHolderColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultPlaceHolderColor}"/>
     </Style>
     
-    
-    <DropShadowEffect x:Key="HeaderShadow" Color="DarkSlateBlue" BlurRadius="3" Opacity="1" Direction="0"/>
     <Style x:Key="Header" TargetType="Label">
         <Setter Property="FontFamily" Value="Averia Libre"/>
         <Setter Property="FontStyle" Value="Italic"/>
@@ -74,7 +69,7 @@
         <Setter Property="Padding" Value="20"/>
         <Setter Property="IsHitTestVisible" Value="False"/>
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Effect" Value="{StaticResource HeaderShadow}"/>
-        <Setter Property="Foreground" Value="{StaticResource DefaultButtonFColor}"/>
+        <Setter Property="Effect" Value="{DynamicResource HeaderShadow}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultButtonFColor}"/>
     </Style>
 </ResourceDictionary>

@@ -240,6 +240,8 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>BookStoreModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Styles\DayIcon.png" />
+    <Resource Include="Styles\NightIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

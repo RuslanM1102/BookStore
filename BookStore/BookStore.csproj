@@ -106,6 +106,7 @@
     <Compile Include="DatabaseModels\Cities.cs">
       <DependentUpon>BookStoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseModels\BookStoreDB.cs" />
     <Compile Include="DatabaseModels\Contracts.cs">
       <DependentUpon>BookStoreModel.tt</DependentUpon>
     </Compile>

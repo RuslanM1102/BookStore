@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\206934\source\repos\BookStore\BookStore\obj\Debug\
+C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\obj\Debug\
 BookStore
 none
 false
 DEBUG;TRACE
-C:\Users\206934\source\repos\BookStore\BookStore\App.xaml
-71989555555
-21757058111
-331443779172
-181224036962
+C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\App.xaml
+71366388165
+2146024705
+34136547205
+181702741045
 Pages\MainMenu.xaml;MainWindow.xaml;Pages\AuthorizationPage.xaml;Pages\RegistrationPage.xaml;Styles\Dictionary.xaml;Styles\DarkTheme.xaml;Styles\LightTheme.xaml;
 
 False

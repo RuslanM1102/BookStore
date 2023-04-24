@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 using System.Linq;
+using BookStore.DatabaseModels;
 
 namespace BookStore
 {
@@ -15,12 +16,7 @@ namespace BookStore
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new DateTimeViewModel();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
+            //LoginPlaceholder.Content = BookStoreDB.GetContext().Authors.First().Name;
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)

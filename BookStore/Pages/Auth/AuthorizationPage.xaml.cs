@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using BookStore.DatabaseModels;
 using BookStore.Modules;
 
@@ -26,14 +16,14 @@ namespace BookStore.Pages.Auth
         {
             InitializeComponent();
         }
-        private void Login_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void Login_TextChanged(object sender, TextChangedEventArgs e)
         {
-            LoginPlaceholder.Visibility = Login.Text.Length > 0 ? Visibility.Hidden : Visibility.Visible;
+            PlaceholderController.SetVisibility(Login.Text, LoginPlaceholder);
         }
 
         private void Password_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            PasswordPlaceholder.Visibility = Password.Password.Length > 0 ? Visibility.Hidden : Visibility.Visible;
+            PlaceholderController.SetVisibility(Password.Password, PasswordPlaceholder);
         }
 
         private void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -67,6 +57,7 @@ namespace BookStore.Pages.Auth
                 if (HashCoder.GetHashCode(Password.Password) == context.Accounts.Where(x => x.Login == Login.Text).First().Password)
                 {
                     new MainMenu().Show();
+                    Application.Current.MainWindow.Close();
                 }
                 else
                 {
@@ -77,6 +68,11 @@ namespace BookStore.Pages.Auth
             {
                 MessageBox.Show("Такого аккаунта не существует");
             }
+        }
+
+        private void ChangePasswordButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new PasswordPage());            
         }
     }
 }

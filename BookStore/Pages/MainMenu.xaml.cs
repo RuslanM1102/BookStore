@@ -1,6 +1,10 @@
-﻿using System;
+﻿using BookStore.DatabaseModels;
+using CsvHelper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,6 +55,27 @@ namespace BookStore
             _openAuth = true;
             new MainWindow().Show();
             Close();
+        }
+
+        private void Export_Click(object sender, RoutedEventArgs e)
+        {
+            string path = "export.csv";
+            using (CsvWriter csv = new CsvWriter(new StreamWriter(path), CultureInfo.CurrentCulture))
+            {
+                var db = BookStoreDB.GetContext();
+                foreach (var publisher in db.Publishers)
+                {
+                    csv.WriteField(publisher.ID);
+                    csv.WriteField(publisher.Name);
+                    csv.NextRecord();
+                }
+            }
+            MessageBox.Show("Экспорт завершён");
+        }
+
+        private void Import_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 

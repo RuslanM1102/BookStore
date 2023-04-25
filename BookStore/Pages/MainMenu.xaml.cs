@@ -21,6 +21,7 @@ namespace BookStore
     /// </summary>
     public partial class MainMenu : Window
     {
+        private bool _openAuth = false;
         public MainMenu()
         {
             InitializeComponent();
@@ -38,8 +39,18 @@ namespace BookStore
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            e.Cancel = MessageBox.Show(this, "Вы уверены?", "Выход",
-                MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes) == MessageBoxResult.No;
+            if (!_openAuth)
+            {
+                e.Cancel = MessageBox.Show(this, "Вы уверены?", "Выход",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes) == MessageBoxResult.No;
+            }
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            _openAuth = true;
+            new MainWindow().Show();
+            Close();
         }
     }
 

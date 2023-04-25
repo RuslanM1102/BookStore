@@ -7,11 +7,27 @@
         <Setter Property="FontSize" Value="30"/>
         <Setter Property="Background" Value="{DynamicResource DefaultButtonBColor}"/>
         <Setter Property="Foreground" Value="{DynamicResource DefaultButtonFColor}"/>
-        <Style.Resources>
-            <Style TargetType="Border">
-                <Setter Property="CornerRadius" Value="3"/>
-            </Style>
-        </Style.Resources>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{DynamicResource DefaultPlaceHolderColor}">
+                        <ContentPresenter Content="{TemplateBinding Content}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderThickness" Value="3"/>
+            </Trigger>
+            <Trigger Property="IsMouseCaptured" Value="True">
+                <Setter Property="Background" Value="{DynamicResource DefaultPlaceHolderColor}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="DefaultTextBox" TargetType="TextBox">
@@ -26,6 +42,8 @@
         <Style.Resources>
             <Style TargetType="Border">
                 <Setter Property="CornerRadius" Value="3"/>
+                <Setter Property="BorderBrush" Value="Red"/>
+                <Setter Property="BorderThickness" Value="5"/>
             </Style>
         </Style.Resources>
     </Style>

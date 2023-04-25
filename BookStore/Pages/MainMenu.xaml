@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookStore"
         mc:Ignorable="d"
-        Title="BookStore" Height="450" Width="800" ResizeMode="NoResize" Loaded="Window_Loaded" Closing="Window_Closing">
+        Title="BookStore" Height="450" Width="800" ResizeMode="NoResize" Loaded="Window_Loaded" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="45"/>
@@ -16,6 +16,7 @@
         <Frame x:Name="MainFrame" Grid.Row="1"/>
         <Label Content="{Binding Path=CurrentDateTime}" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Content="Выйти" Width="100" Click="Exit_Click"/>
             <Button Content="Назад" Width="100"/>
         </StackPanel>
     </Grid>

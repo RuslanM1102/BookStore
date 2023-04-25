@@ -1,44 +1,13 @@
 ﻿<Window x:Class="BookStore.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookStore"
         mc:Ignorable="d"
-        Title="BookStore" Height="700" Width="500" ResizeMode="NoResize">
+        Title="BookStore" Height="750" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="{DynamicResource DefaultBackground}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="8*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Label Content="BookStore" Grid.Row="0" Grid.Column="1" Style="{StaticResource Header}"/>
-
-        <TextBox x:Name="Login" Grid.Row="1" Grid.Column="1" Height="70" Width="300"
-                 Style="{StaticResource DefaultTextBox}" TextChanged="Login_TextChanged"/>
-        <Label x:Name="LoginPlaceholder" Grid.Row="1" Grid.Column="1" Style="{StaticResource Placeholder}"
-                   Height="70" Width="300" Content="Логин"/>
-        
-        <PasswordBox x:Name="Password" Grid.Row="2" Grid.Column="1" Height="70" Width="300" 
-                     Style="{StaticResource DefaultPasswordBox}" VerticalAlignment="Top" PasswordChanged="Password_PasswordChanged"/>
-        <Label x:Name="PasswordPlaceholder" Grid.Row="2" Grid.Column="1" Style="{StaticResource Placeholder}"
-                   Height="70" Width="300" VerticalAlignment="Top" Content="Пароль"/>
-        <Label></Label>
-
-        <Image Source="{DynamicResource Icon}" Grid.Row="3" Grid.Column="1" Margin="10,15,10,10" VerticalAlignment="Center" MouseDown="Image_MouseDown"/>
-
-        <Button x:Name="ChangePasswordButton" Style="{StaticResource DefaultButton}" Grid.Row="2" Grid.Column="1"
-                HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="45" Width="240" FontSize="24">Сменить пароль</Button>
-        <Button x:Name="AuthButton" Style="{StaticResource DefaultButton}" Grid.Row="4" Grid.Column="1"
-                HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="500">Авторизоваться</Button>
-        
+        <Frame Source="Pages/Auth/AuthorizationPage.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

@@ -15,8 +15,6 @@ namespace BookStore.Pages.Auth
         public AuthorizationPage()
         {
             InitializeComponent();
-            new MainMenu().Show();
-            MainWindow.Instance.Close();
         }
         private void Login_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -30,7 +28,7 @@ namespace BookStore.Pages.Auth
 
         private void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            ThemeContoller.SwitchTheme();
+            ThemeController.SwitchTheme();
         }
 
         private void AuthButton_Click(object sender, RoutedEventArgs e)
@@ -45,7 +43,7 @@ namespace BookStore.Pages.Auth
             if (context.Accounts.Any(x => x.Login == Login.Text))
             {
                 var passwordHash = context.Accounts.Where(x => x.Login == Login.Text).First().Password;
-                if (Password.Password == (passwordHash ?? "") ||HashCoder.GetHashCode(Password.Password) == passwordHash)
+                if (Password.Password == (passwordHash ?? "") || HashCoder.GetHashCode(Password.Password) == passwordHash)
                 {
                     new MainMenu().Show();
                     MainWindow.Instance.Close();

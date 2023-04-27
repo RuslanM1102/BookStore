@@ -4,10 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d0945b3f5c7b4b21a3a2d4b4c64c3852" Name="Diagram1">
+      <Diagram DiagramId="7088a8de6ea140beba4da6ab8385effd" Name="Diagram1">
         <EntityTypeShape EntityType="BookStoreModel.Accounts" Width="1.5" PointX="3.75" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BookStoreModel.Authors" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookStoreModel.Banks" Width="1.5" PointX="3.75" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BookStoreModel.Cities" Width="1.5" PointX="1.5" PointY="21.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BookStoreModel.Contracts" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BookStoreModel.Counteragents" Width="1.5" PointX="0.75" PointY="16.625" IsExpanded="true" />
@@ -20,7 +19,6 @@
         <EntityTypeShape EntityType="BookStoreModel.Positions" Width="1.5" PointX="6.75" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="BookStoreModel.Publishers" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BookStoreModel.Regions" Width="1.5" PointX="1.5" PointY="24.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookStoreModel.Requisites" Width="1.5" PointX="6" PointY="17.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BookStoreModel.SellParts" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BookStoreModel.Sells" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BookStoreModel.ShipmentParts" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
@@ -29,13 +27,11 @@
         <EntityTypeShape EntityType="BookStoreModel.Statuses" Width="1.5" PointX="0.75" PointY="26.625" IsExpanded="true" />
         <AssociationConnector Association="BookStoreModel.FK__Sells__AccountID__628FA481" ManuallyRouted="false" />
         <AssociationConnector Association="BookStoreModel.FK_Staff_Accounts" ManuallyRouted="false" />
-        <AssociationConnector Association="BookStoreModel.FK__Requisite__BankI__48CFD27E" ManuallyRouted="false" />
         <AssociationConnector Association="BookStoreModel.FK_Counteragents_Cities" ManuallyRouted="false" />
         <AssociationConnector Association="BookStoreModel.FK_Orders_Cities" ManuallyRouted="false" />
         <AssociationConnector Association="BookStoreModel.FK__Shipments__Contr__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="BookStoreModel.FK__Shipments__Count__4E88ABD4" ManuallyRouted="false" />
         <AssociationConnector Association="BookStoreModel.FK_Counteragents_Regions" ManuallyRouted="false" />
-        <AssociationConnector Association="BookStoreModel.FK_Requisites_Counteragents" ManuallyRouted="false" />
         <AssociationConnector Association="BookStoreModel.FK__Orders__Discount__5EBF139D" ManuallyRouted="false" />
         <AssociationConnector Association="BookStoreModel.FK__Sells__DiscountI__619B8048" ManuallyRouted="false" />
         <AssociationConnector Association="BookStoreModel.FK__Nomenclat__Forma__5AEE82B9" ManuallyRouted="false" />

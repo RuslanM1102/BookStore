@@ -1,12 +1,11 @@
 ﻿using BookStore.DatabaseModels;
 using CsvHelper;
 using Microsoft.Win32;
-using System;
+using BookStore.Modules;
 using System.IO;
-using System.Data.Entity.Core.EntityClient;
-using System.Data.Entity.Core.Metadata.Edm;
 using System.Globalization;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace BookStore.Modules
 {
@@ -29,7 +28,12 @@ namespace BookStore.Modules
                     .Where(p => p.GetGetMethod().IsVirtual == false)
                     .Select(x => x.Name);
 
-                foreach(var prop in properties)
+                var properties2 = typeof(T).GetProperties()
+                .Where(p => p.GetGetMethod().IsVirtual && p.PropertyType.IsGenericType && 
+                    p.PropertyType.GetGenericTypeDefinition() == typeof(ICollection<>))
+                .Select(x => x.Name);
+
+                foreach (var prop in ReflectionPropertyFinder.FindProperties<Nomenclature>())
                 {
                     csv.WriteField(prop);
                     csv.NextRecord();

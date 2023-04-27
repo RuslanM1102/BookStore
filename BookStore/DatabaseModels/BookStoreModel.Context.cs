@@ -27,7 +27,6 @@ namespace BookStore.DatabaseModels
     
         public virtual DbSet<Accounts> Accounts { get; set; }
         public virtual DbSet<Authors> Authors { get; set; }
-        public virtual DbSet<Banks> Banks { get; set; }
         public virtual DbSet<Cities> Cities { get; set; }
         public virtual DbSet<Contracts> Contracts { get; set; }
         public virtual DbSet<Counteragents> Counteragents { get; set; }
@@ -40,7 +39,6 @@ namespace BookStore.DatabaseModels
         public virtual DbSet<Positions> Positions { get; set; }
         public virtual DbSet<Publishers> Publishers { get; set; }
         public virtual DbSet<Regions> Regions { get; set; }
-        public virtual DbSet<Requisites> Requisites { get; set; }
         public virtual DbSet<SellParts> SellParts { get; set; }
         public virtual DbSet<Sells> Sells { get; set; }
         public virtual DbSet<ShipmentParts> ShipmentParts { get; set; }

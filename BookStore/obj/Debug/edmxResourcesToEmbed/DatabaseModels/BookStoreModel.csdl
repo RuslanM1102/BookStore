@@ -21,14 +21,6 @@
     <Property Name="Patronymic" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Nomenclature" Relationship="Self.Nomenclature_Authors" FromRole="Authors" ToRole="Nomenclature" />
   </EntityType>
-  <EntityType Name="Banks">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Requisites" Relationship="Self.FK__Requisite__BankI__48CFD27E" FromRole="Banks" ToRole="Requisites" />
-  </EntityType>
   <EntityType Name="Cities">
     <Key>
       <PropertyRef Name="ID" />
@@ -66,7 +58,6 @@
     <NavigationProperty Name="Cities" Relationship="Self.FK_Counteragents_Cities" FromRole="Counteragents" ToRole="Cities" />
     <NavigationProperty Name="Shipments" Relationship="Self.FK__Shipments__Count__4E88ABD4" FromRole="Counteragents" ToRole="Shipments" />
     <NavigationProperty Name="Regions" Relationship="Self.FK_Counteragents_Regions" FromRole="Counteragents" ToRole="Regions" />
-    <NavigationProperty Name="Requisites" Relationship="Self.FK_Requisites_Counteragents" FromRole="Counteragents" ToRole="Requisites" />
     <NavigationProperty Name="Contracts" Relationship="Self.Counteragents_Contracts" FromRole="Counteragents" ToRole="Contracts" />
   </EntityType>
   <EntityType Name="DiscountCards">
@@ -177,18 +168,6 @@
     <NavigationProperty Name="Counteragents" Relationship="Self.FK_Counteragents_Regions" FromRole="Regions" ToRole="Counteragents" />
     <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Regions" FromRole="Regions" ToRole="Orders" />
   </EntityType>
-  <EntityType Name="Requisites">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CorAccount" Type="Decimal" Precision="20" Scale="0" Nullable="false" />
-    <Property Name="BIC" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
-    <Property Name="Counteragents_ID" Type="Int32" Nullable="false" />
-    <Property Name="BankID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Banks" Relationship="Self.FK__Requisite__BankI__48CFD27E" FromRole="Requisites" ToRole="Banks" />
-    <NavigationProperty Name="Counteragents" Relationship="Self.FK_Requisites_Counteragents" FromRole="Requisites" ToRole="Counteragents" />
-  </EntityType>
   <EntityType Name="SellParts">
     <Key>
       <PropertyRef Name="ID" />
@@ -293,18 +272,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Requisite__BankI__48CFD27E">
-    <End Role="Banks" Type="Self.Banks" Multiplicity="1" />
-    <End Role="Requisites" Type="Self.Requisites" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Banks">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Requisites">
-        <PropertyRef Name="BankID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Counteragents_Cities">
     <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
     <End Role="Counteragents" Type="Self.Counteragents" Multiplicity="*" />
@@ -362,18 +329,6 @@
       </Principal>
       <Dependent Role="Counteragents">
         <PropertyRef Name="RegionID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Requisites_Counteragents">
-    <End Role="Counteragents" Type="Self.Counteragents" Multiplicity="1" />
-    <End Role="Requisites" Type="Self.Requisites" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Counteragents">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Requisites">
-        <PropertyRef Name="Counteragents_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -560,7 +515,6 @@
   <EntityContainer Name="BookStoreEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Accounts" EntityType="Self.Accounts" />
     <EntitySet Name="Authors" EntityType="Self.Authors" />
-    <EntitySet Name="Banks" EntityType="Self.Banks" />
     <EntitySet Name="Cities" EntityType="Self.Cities" />
     <EntitySet Name="Contracts" EntityType="Self.Contracts" />
     <EntitySet Name="Counteragents" EntityType="Self.Counteragents" />
@@ -573,7 +527,6 @@
     <EntitySet Name="Positions" EntityType="Self.Positions" />
     <EntitySet Name="Publishers" EntityType="Self.Publishers" />
     <EntitySet Name="Regions" EntityType="Self.Regions" />
-    <EntitySet Name="Requisites" EntityType="Self.Requisites" />
     <EntitySet Name="SellParts" EntityType="Self.SellParts" />
     <EntitySet Name="Sells" EntityType="Self.Sells" />
     <EntitySet Name="ShipmentParts" EntityType="Self.ShipmentParts" />
@@ -587,10 +540,6 @@
     <AssociationSet Name="FK_Staff_Accounts" Association="Self.FK_Staff_Accounts">
       <End Role="Accounts" EntitySet="Accounts" />
       <End Role="Staff" EntitySet="Staff" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Requisite__BankI__48CFD27E" Association="Self.FK__Requisite__BankI__48CFD27E">
-      <End Role="Banks" EntitySet="Banks" />
-      <End Role="Requisites" EntitySet="Requisites" />
     </AssociationSet>
     <AssociationSet Name="FK_Counteragents_Cities" Association="Self.FK_Counteragents_Cities">
       <End Role="Cities" EntitySet="Cities" />
@@ -611,10 +560,6 @@
     <AssociationSet Name="FK_Counteragents_Regions" Association="Self.FK_Counteragents_Regions">
       <End Role="Regions" EntitySet="Regions" />
       <End Role="Counteragents" EntitySet="Counteragents" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Requisites_Counteragents" Association="Self.FK_Requisites_Counteragents">
-      <End Role="Counteragents" EntitySet="Counteragents" />
-      <End Role="Requisites" EntitySet="Requisites" />
     </AssociationSet>
     <AssociationSet Name="FK__Orders__Discount__5EBF139D" Association="Self.FK__Orders__Discount__5EBF139D">
       <End Role="DiscountCards" EntitySet="DiscountCards" />

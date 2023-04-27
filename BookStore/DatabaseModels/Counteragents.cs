@@ -18,7 +18,6 @@ namespace BookStore.DatabaseModels
         public Counteragents()
         {
             this.Shipments = new HashSet<Shipments>();
-            this.Requisites = new HashSet<Requisites>();
             this.Contracts = new HashSet<Contracts>();
         }
     
@@ -38,8 +37,6 @@ namespace BookStore.DatabaseModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shipments> Shipments { get; set; }
         public virtual Regions Regions { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Requisites> Requisites { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contracts> Contracts { get; set; }
     }

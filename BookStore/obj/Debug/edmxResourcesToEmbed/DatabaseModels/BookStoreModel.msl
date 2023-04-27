@@ -21,14 +21,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Banks">
-      <EntityTypeMapping TypeName="BookStoreModel.Banks">
-        <MappingFragment StoreEntitySet="Banks">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Cities">
       <EntityTypeMapping TypeName="BookStoreModel.Cities">
         <MappingFragment StoreEntitySet="Cities">
@@ -155,17 +147,6 @@
         <MappingFragment StoreEntitySet="Regions">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Requisites">
-      <EntityTypeMapping TypeName="BookStoreModel.Requisites">
-        <MappingFragment StoreEntitySet="Requisites">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="CorAccount" ColumnName="CorAccount" />
-          <ScalarProperty Name="BIC" ColumnName="BIC" />
-          <ScalarProperty Name="Counteragents_ID" ColumnName="Counteragents_ID" />
-          <ScalarProperty Name="BankID" ColumnName="BankID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

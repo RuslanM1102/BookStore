@@ -3,6 +3,7 @@ using BookStore.Modules;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Text.RegularExpressions;
 
 namespace BookStore.Pages.Auth
 {
@@ -41,7 +42,8 @@ namespace BookStore.Pages.Auth
             if (context.Accounts.Any(x => x.Login == Login.Text))
             {
                 var account = context.Accounts.Where(x => x.Login == Login.Text).First();
-                if (HashCoder.GetHashCode(OldPassword.Password) == account.Password)
+                var passwordHash = account.Password;
+                if (OldPassword.Password == (passwordHash ?? "") || HashCoder.GetHashCode(OldPassword.Password) == account.Password)
                 {
                     if (ValidatePassword(Password.Password))
                     {
@@ -76,7 +78,7 @@ namespace BookStore.Pages.Auth
                 return true;
             }
 
-            return password.Length > 6 && password.Any(char.IsDigit) && password.All(char.IsLetterOrDigit);
+            return password.Length > 6 && password.Any(char.IsDigit) && Regex.IsMatch(password, @"^[A-Za-z\d]+$");
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace BookStore.Modules
 {
-    internal class ThemeContoller
+    internal class ThemeController
     {
         public static void SwitchTheme()
         {

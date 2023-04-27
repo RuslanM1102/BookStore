@@ -81,7 +81,7 @@ namespace BookStore
         }
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            ThemeContoller.SwitchTheme();
+            ThemeController.SwitchTheme();
         }
 
         private void Import_Click(object sender, RoutedEventArgs e)

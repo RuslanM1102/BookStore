@@ -114,9 +114,6 @@
     <Compile Include="DatabaseModels\Authors.cs">
       <DependentUpon>BookStoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseModels\Banks.cs">
-      <DependentUpon>BookStoreModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DatabaseModels\BookStoreModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -168,9 +165,6 @@
     <Compile Include="DatabaseModels\Regions.cs">
       <DependentUpon>BookStoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseModels\Requisites.cs">
-      <DependentUpon>BookStoreModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DatabaseModels\SellParts.cs">
       <DependentUpon>BookStoreModel.tt</DependentUpon>
     </Compile>
@@ -193,7 +187,8 @@
     <Compile Include="Modules\CsvManager.cs" />
     <Compile Include="Modules\HashCoder.cs" />
     <Compile Include="Modules\PlaceholderController.cs" />
-    <Compile Include="Modules\ThemeContoller.cs" />
+    <Compile Include="Modules\ReflectionPropertyFinder.cs" />
+    <Compile Include="Modules\ThemeController.cs" />
     <Compile Include="Pages\Auth\PasswordPage.xaml.cs">
       <DependentUpon>PasswordPage.xaml</DependentUpon>
     </Compile>

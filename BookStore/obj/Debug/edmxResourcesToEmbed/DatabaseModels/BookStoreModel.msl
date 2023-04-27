@@ -96,8 +96,6 @@
           <ScalarProperty Name="Pages" ColumnName="Pages" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
-          <ScalarProperty Name="GenreID" ColumnName="GenreID" />
           <ScalarProperty Name="FormatID" ColumnName="FormatID" />
           <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
         </MappingFragment>
@@ -255,7 +253,7 @@
         <ScalarProperty Name="ID" ColumnName="Authors_ID" />
       </EndProperty>
       <EndProperty Name="Nomenclature">
-        <ScalarProperty Name="ID" ColumnName="Nomenclature_AuthorID" />
+        <ScalarProperty Name="ID" ColumnName="Nomenclature_ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="Nomenclature_Genres" TypeName="BookStoreModel.Nomenclature_Genres" StoreEntitySet="Nomenclature_Genres">
@@ -263,7 +261,7 @@
         <ScalarProperty Name="ID" ColumnName="Genres_ID" />
       </EndProperty>
       <EndProperty Name="Nomenclature">
-        <ScalarProperty Name="ID" ColumnName="Nomenclature_GenreID" />
+        <ScalarProperty Name="ID" ColumnName="Nomenclature_ID" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

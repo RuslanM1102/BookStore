@@ -110,3 +110,5 @@ C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\bin\Debug\System.Memory
 C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\NomenclaturePage.g.cs
+C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\NomenclaturePage.baml

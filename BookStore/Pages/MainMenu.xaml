@@ -5,21 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookStore"
         mc:Ignorable="d"
-        Title="BookStore" Height="450" Width="800" ResizeMode="NoResize" Loaded="Window_Loaded" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
-    <Grid>
+        Title="BookStore" MinHeight="576" MinWidth="1024" Loaded="Window_Loaded" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
+    <Grid Background="{DynamicResource SubBackground}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="45"/>
             <RowDefinition/>
             <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
         <Frame x:Name="MainFrame" Grid.Row="1"/>
-        <Label Content="{Binding Path=CurrentDateTime}" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Button Content="Выйти" Width="100" Click="Exit_Click"/>
-            <Button Width="100" Click="Export_Click" Content="Экспорт&#xa;издательств"/>
-            <Button Width="100" Content="Импорт&#xa;издательств" Click="Import_Click"/>
-            <Button Content="Назад" Width="100"/>
+        <Viewbox Grid.Row="1" Stretch="Fill">
+            <Grid Background="{DynamicResource DefaultButtonBColor}">
+                <Label Content="{Binding Path=CurrentDateTime}" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                       Foreground="{DynamicResource TimeColor}" Grid.RowSpan="2"/>
+            </Grid>
+        </Viewbox>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Background="{DynamicResource DefaultBackground}">
+            <Viewbox>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="BookStore" Grid.Row="0" Grid.Column="1" FontSize="30" Style="{StaticResource Header}"/>
+                    <Viewbox MaxHeight="50">
+                        <Image Source="{DynamicResource Icon}" Grid.Row="3" Grid.Column="1" Margin="10,15,10,10" VerticalAlignment="Center" MouseDown="Image_MouseDown"/>
+                    </Viewbox>
+                </StackPanel>
+            </Viewbox>
+            <Separator Opacity="0" MinHeight="5"/>
+            <Button Style="{DynamicResource DefaultButton}" Height="50" Click="Nomenclature_Click" Content="Номенклатура"/>
+            <Separator Opacity="0" MinHeight="200"/>
+            <Button Style="{DynamicResource DefaultButton}" Height="50" Click="Export_Click" Content="Экспорт издательств"/>
+            <Separator Opacity="0" MinHeight="5"/>
+            <Button Style="{DynamicResource DefaultButton}" Height="50" Content="Импорт издательств" Click="Import_Click"/>
+            <Separator Opacity="0" MinHeight="5"/>
+            <Button Style="{DynamicResource DefaultButton}" Height="50" Content="Выйти" Click="Exit_Click"/>
         </StackPanel>
+
+        <Frame Grid.Column="1" Grid.RowSpan="2" Source="MainMenuPages/NomenclaturePage.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

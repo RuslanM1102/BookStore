@@ -2,12 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <SolidColorBrush x:Key="DefaultBackground" Color="#FF232336"/>
+    <SolidColorBrush x:Key="SubBackground" Color="#FF00093A"/>
     <SolidColorBrush x:Key="DefaultButtonBColor" Color="#FF4E4F46"/>
     <SolidColorBrush x:Key="DefaultButtonFColor" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="DefaultHeaderFColor" Color="AntiqueWhite"/>
     <SolidColorBrush x:Key="DefaultTextBoxBColor" Color="#C4DBF5"/>
     <SolidColorBrush x:Key="DefaultTextBoxFColor" Color="#000000"/>
     <SolidColorBrush x:Key="DefaultPlaceHolderColor" Color="#FF517995"/>
-    <DropShadowEffect x:Key="HeaderShadow" Color="#FFB7C77F" BlurRadius="3" Opacity="1" Direction="0"/>
+    <SolidColorBrush x:Key="CellFColor" Color="#FF549DFF"/>
+    <SolidColorBrush x:Key="CellBColor" Color="#FF00093A"/>
+    <SolidColorBrush x:Key="TimeColor" Color="#FF549DFF"/>
+    <DropShadowEffect x:Key="HeaderShadow" Color="DarkSlateBlue" BlurRadius="3" Opacity="1" Direction="0"/>
     <BitmapImage x:Key="Icon" UriSource="NightIcon.png" />
     
 </ResourceDictionary>

@@ -4,19 +4,23 @@
     <Style x:Key="DefaultButton" TargetType="Button">
         <Setter Property="FontFamily" Value="Averia Libre"/>
         <Setter Property="FontStyle" Value="Italic"/>
-        <Setter Property="FontSize" Value="30"/>
         <Setter Property="Background" Value="{DynamicResource DefaultButtonBColor}"/>
         <Setter Property="Foreground" Value="{DynamicResource DefaultButtonFColor}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{DynamicResource DefaultPlaceHolderColor}">
-                        <ContentPresenter Content="{TemplateBinding Content}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                    <Border Background="{TemplateBinding Background}" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{DynamicResource DefaultPlaceHolderColor}">
+                        <Viewbox>
+                            <ContentPresenter Content="{TemplateBinding Content}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="10 10 10 10">
+                            </ContentPresenter>
+                        </Viewbox>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
+            
         </Setter>
 
 
@@ -88,6 +92,45 @@
         <Setter Property="IsHitTestVisible" Value="False"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Effect" Value="{DynamicResource HeaderShadow}"/>
-        <Setter Property="Foreground" Value="{DynamicResource DefaultButtonFColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultHeaderFColor}"/>
     </Style>
+
+    <Style x:Key="DataGrid" TargetType="DataGrid" BasedOn="{StaticResource {x:Type DataGrid}}">
+        <Setter Property="Background" Value="{DynamicResource DefaultBackground}"/>
+        <Setter Property="CellStyle" Value="{DynamicResource GridCell}"/>
+        <Setter Property="ColumnHeaderStyle" Value="{DynamicResource ColumnHeader}"/>
+        <Setter Property="RowStyle" Value="{DynamicResource GridRow}"/>
+        <Setter Property="RowHeaderStyle" Value="{DynamicResource RowHeader}"/>
+
+    </Style>
+
+    <Style x:Key="GridCell" TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">
+        <Setter Property="Background" Value="{DynamicResource CellBColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource CellFColor}"/>
+    </Style>
+
+    <Style x:Key="GridRow" TargetType="DataGridRow" BasedOn="{StaticResource {x:Type DataGridRow}}">
+        <Setter Property="Background" Value="{DynamicResource SubBackground}"/>
+    </Style>
+
+    <Style x:Key="RowHeader" TargetType="DataGridRowHeader" BasedOn="{StaticResource {x:Type DataGridRowHeader}}">
+        <Setter Property="Background" Value="{DynamicResource SubBackground}"/>
+    </Style>
+
+    <Style x:Key="ColumnHeader" TargetType="DataGridColumnHeader" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+        <Setter Property="Background" Value="{DynamicResource DefaultButtonBColor}"/>
+        <Setter Property="FontFamily" Value="Averia Libre"/>
+        <Setter Property="FontStyle" Value="Italic"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultHeaderFColor}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGridColumnHeader">
+                    <Border BorderBrush="{DynamicResource TimeColor}" BorderThickness="2">
+                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

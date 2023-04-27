@@ -1,22 +1,17 @@
 ﻿using BookStore.DatabaseModels;
 using CsvHelper;
+using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Linq;
+using BookStore.Modules;
+using System.Windows.Input;
+using System.Windows.Navigation;
+using BookStore.Pages.Auth;
 
 namespace BookStore
 {
@@ -57,9 +52,21 @@ namespace BookStore
             Close();
         }
 
+        private void Nomenclature_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new PasswordPage());
+        }
+
         private void Export_Click(object sender, RoutedEventArgs e)
         {
-            string path = "export.csv";
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "csv files (*.csv)|*.csv";
+            if(saveFileDialog.ShowDialog() != true)
+            {
+                return;
+            }
+
+            string path = saveFileDialog.FileName;
             using (CsvWriter csv = new CsvWriter(new StreamWriter(path), CultureInfo.CurrentCulture))
             {
                 var db = BookStoreDB.GetContext();
@@ -72,10 +79,34 @@ namespace BookStore
             }
             MessageBox.Show("Экспорт завершён");
         }
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ThemeContoller.SwitchTheme();
+        }
 
         private void Import_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "csv files (*.csv)|*.csv";
+            if (openFileDialog.ShowDialog() != true)
+            {
+                return;
+            }
 
+            string path = openFileDialog.FileName;
+            using (CsvReader csv = new CsvReader(new StreamReader(path), CultureInfo.CurrentCulture))
+            {
+                var db = BookStoreDB.GetContext();
+                while (csv.Read())
+                {
+                    var name = csv.GetField(1);
+                    Publishers publisher = new Publishers();
+                    publisher.Name = name;
+                    db.Publishers.Add(publisher);
+                }
+                db.SaveChanges();
+            }
+            MessageBox.Show("Импорт завершён");
         }
     }
 

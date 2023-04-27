@@ -15,6 +15,8 @@ namespace BookStore.Pages.Auth
         public AuthorizationPage()
         {
             InitializeComponent();
+            new MainMenu().Show();
+            MainWindow.Instance.Close();
         }
         private void Login_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -28,19 +30,7 @@ namespace BookStore.Pages.Auth
 
         private void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            var genericTheme = new Uri("Styles/Dictionary.xaml", UriKind.Relative);
-            var darkTheme = new Uri("Styles/DarkTheme.xaml", UriKind.Relative);
-            var lightTheme = new Uri("Styles/LightTheme.xaml", UriKind.Relative);
-
-            ResourceDictionary resourceDict = Application.Current.Resources;
-            Uri newTheme = resourceDict.MergedDictionaries.Where(x => x.Source.OriginalString == lightTheme.OriginalString).Count() == 1 ? darkTheme : lightTheme;
-
-            var mainDictionary = new ResourceDictionary() { Source = genericTheme };
-            var colorDictionary = new ResourceDictionary() { Source = newTheme };
-
-            resourceDict.MergedDictionaries.Clear();
-            resourceDict.MergedDictionaries.Add(mainDictionary);
-            resourceDict.MergedDictionaries.Add(colorDictionary);
+            ThemeContoller.SwitchTheme();
         }
 
         private void AuthButton_Click(object sender, RoutedEventArgs e)
@@ -54,10 +44,11 @@ namespace BookStore.Pages.Auth
             BookStoreEntities context = BookStoreDB.GetContext();
             if (context.Accounts.Any(x => x.Login == Login.Text))
             {
-                if (HashCoder.GetHashCode(Password.Password) == context.Accounts.Where(x => x.Login == Login.Text).First().Password)
+                var passwordHash = context.Accounts.Where(x => x.Login == Login.Text).First().Password;
+                if (Password.Password == (passwordHash ?? "") ||HashCoder.GetHashCode(Password.Password) == passwordHash)
                 {
                     new MainMenu().Show();
-                    Application.Current.MainWindow.Close();
+                    MainWindow.Instance.Close();
                 }
                 else
                 {

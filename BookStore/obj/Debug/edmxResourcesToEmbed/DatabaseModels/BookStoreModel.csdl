@@ -6,7 +6,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Login" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Sells" Relationship="Self.FK__Sells__AccountID__628FA481" FromRole="Accounts" ToRole="Sells" />
     <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_Accounts" FromRole="Accounts" ToRole="Staff" />
@@ -104,8 +104,6 @@
     <Property Name="Pages" Type="Int32" Nullable="false" />
     <Property Name="Quantity" Type="Int32" Nullable="false" />
     <Property Name="Price" Type="Int32" Nullable="false" />
-    <Property Name="AuthorID" Type="Int32" Nullable="false" />
-    <Property Name="GenreID" Type="Int32" Nullable="false" />
     <Property Name="FormatID" Type="Int32" Nullable="false" />
     <Property Name="PublisherID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Formats" Relationship="Self.FK__Nomenclat__Forma__5AEE82B9" FromRole="Nomenclature" ToRole="Formats" />

@@ -135,7 +135,6 @@
     <Compile Include="DatabaseModels\Cities.cs">
       <DependentUpon>BookStoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modules\BookStoreDB.cs" />
     <Compile Include="DatabaseModels\Contracts.cs">
       <DependentUpon>BookStoreModel.tt</DependentUpon>
     </Compile>
@@ -190,8 +189,11 @@
     <Compile Include="DatabaseModels\Statuses.cs">
       <DependentUpon>BookStoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modules\BookStoreDB.cs" />
+    <Compile Include="Modules\CsvManager.cs" />
     <Compile Include="Modules\HashCoder.cs" />
     <Compile Include="Modules\PlaceholderController.cs" />
+    <Compile Include="Modules\ThemeContoller.cs" />
     <Compile Include="Pages\Auth\PasswordPage.xaml.cs">
       <DependentUpon>PasswordPage.xaml</DependentUpon>
     </Compile>
@@ -203,6 +205,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\Auth\AuthorizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainMenuPages\NomenclaturePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -222,6 +228,9 @@
   <ItemGroup>
     <Compile Include="Pages\Auth\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainMenuPages\NomenclaturePage.xaml.cs">
+      <DependentUpon>NomenclaturePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -260,19 +269,23 @@
     <Resource Include="AppIcon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DatabaseModels\BookStoreModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BookStoreModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DatabaseModels\BookStoreModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BookStoreModel.cs</LastGenOutput>
-    </Content>
     <Resource Include="Styles\DayIcon.png" />
     <Resource Include="Styles\NightIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DatabaseModels\BookStoreModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookStoreModel.edmx</DependentUpon>
+      <LastGenOutput>BookStoreModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DatabaseModels\BookStoreModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookStoreModel.edmx</DependentUpon>
+      <LastGenOutput>BookStoreModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -30,8 +30,6 @@ namespace BookStore.DatabaseModels
         public int Pages { get; set; }
         public int Quantity { get; set; }
         public int Price { get; set; }
-        public int AuthorID { get; set; }
-        public int GenreID { get; set; }
         public int FormatID { get; set; }
         public int PublisherID { get; set; }
     

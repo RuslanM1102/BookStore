@@ -2,11 +2,16 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="DefaultBackground" Color="#684040"/>
+    <SolidColorBrush x:Key="SubBackground" Color="#FF67492B"/>
     <SolidColorBrush x:Key="DefaultButtonBColor" Color="#B5B98E"/>
-    <SolidColorBrush x:Key="DefaultButtonFColor" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="DefaultButtonFColor" Color="#FF272727"/>
+    <SolidColorBrush x:Key="DefaultHeaderFColor" Color="AntiqueWhite"/>
     <SolidColorBrush x:Key="DefaultTextBoxBColor" Color="#C4DBF5"/>
     <SolidColorBrush x:Key="DefaultTextBoxFColor" Color="#000000"/>
+    <SolidColorBrush x:Key="CellFColor" Color="DarkSlateGray"/>
+    <SolidColorBrush x:Key="CellBColor" Color="LightGoldenrodYellow"/>
     <SolidColorBrush x:Key="DefaultPlaceHolderColor" Color="#FF517995"/>
-    <DropShadowEffect x:Key="HeaderShadow" Color="DarkSlateBlue" BlurRadius="3" Opacity="1" Direction="0"/>
+    <SolidColorBrush x:Key="TimeColor" Color="#FF1A1C3A"/>
+    <DropShadowEffect x:Key="HeaderShadow" Color="DarkSlateBlue" BlurRadius="5" Opacity="1" Direction="0"/>
     <BitmapImage x:Key="Icon" UriSource="DayIcon.png" />
 </ResourceDictionary>

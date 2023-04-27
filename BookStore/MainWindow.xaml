@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookStore"
         mc:Ignorable="d"
-        Title="BookStore" Height="750" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="BookStore" Height="750" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
     <Grid Background="{DynamicResource DefaultBackground}">
         <Frame Source="Pages/Auth/AuthorizationPage.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>

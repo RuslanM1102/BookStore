@@ -110,8 +110,6 @@ C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\bin\Debug\System.Memory
 C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\NomenclaturePage.g.cs
-C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\NomenclaturePage.baml
 C:\Users\206934\Desktop\BookStore\BookStore\bin\Debug\CsvHelper.dll
 C:\Users\206934\Desktop\BookStore\BookStore\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\206934\Desktop\BookStore\BookStore\bin\Debug\Microsoft.Bcl.HashCode.dll
@@ -132,3 +130,10 @@ C:\Users\206934\Desktop\BookStore\BookStore\obj\Debug\Pages\Auth\PasswordPage.g.
 C:\Users\206934\Desktop\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\NomenclaturePage.g.cs
 C:\Users\206934\Desktop\BookStore\BookStore\obj\Debug\Pages\Auth\PasswordPage.baml
 C:\Users\206934\Desktop\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\NomenclaturePage.baml
+C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\bin\Debug\System.Linq.Dynamic.Core.dll
+C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\bin\Debug\System.Linq.Dynamic.Core.pdb
+C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\bin\Debug\System.Linq.Dynamic.Core.xml
+C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\TablePage.g.cs
+C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\TablePage.baml
+C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\AddEditPage.g.cs
+C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\AddEditPage.baml

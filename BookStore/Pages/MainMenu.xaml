@@ -15,7 +15,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="6*"/>
         </Grid.ColumnDefinitions>
-        <Frame x:Name="MainFrame" Grid.Row="1"/>
+        
         <Viewbox Grid.Row="1" Stretch="Fill">
             <Grid Background="{DynamicResource DefaultButtonBColor}">
                 <Label Content="{Binding Path=CurrentDateTime}" HorizontalAlignment="Right" VerticalAlignment="Top" 
@@ -33,15 +33,11 @@
                 </StackPanel>
             </Viewbox>
             <Separator Opacity="0" MinHeight="5"/>
-            <Button Style="{DynamicResource DefaultButton}" Height="50" Click="Nomenclature_Click" Content="Номенклатура"/>
-            <Separator Opacity="0" MinHeight="200"/>
-            <Button Style="{DynamicResource DefaultButton}" Height="50" Click="Export_Click" Content="Экспорт издательств"/>
-            <Separator Opacity="0" MinHeight="5"/>
-            <Button Style="{DynamicResource DefaultButton}" Height="50" Content="Импорт издательств" Click="Import_Click"/>
+            <Button Style="{DynamicResource DefaultButton}" Height="50" Click="Tables_Click" Content="Таблицы"/>
             <Separator Opacity="0" MinHeight="5"/>
             <Button Style="{DynamicResource DefaultButton}" Height="50" Content="Выйти" Click="Exit_Click"/>
         </StackPanel>
 
-        <Frame Grid.Column="1" Grid.RowSpan="2" Source="MainMenuPages/NomenclaturePage.xaml" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MainFrame" Grid.Column="1" Grid.RowSpan="2" Source="MainMenuPages/TablePage.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

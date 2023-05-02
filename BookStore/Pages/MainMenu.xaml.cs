@@ -12,6 +12,7 @@ using BookStore.Modules;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using BookStore.Pages.Auth;
+using BookStore.Pages.MainMenuPages;
 
 namespace BookStore
 {
@@ -52,33 +53,12 @@ namespace BookStore
             Close();
         }
 
-        private void Nomenclature_Click(object sender, RoutedEventArgs e)
+        private void Tables_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new PasswordPage());
+           MainFrame.Navigate(new TablePage());
         }
 
-        private void Export_Click(object sender, RoutedEventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "csv files (*.csv)|*.csv";
-            if(saveFileDialog.ShowDialog() != true)
-            {
-                return;
-            }
-
-            string path = saveFileDialog.FileName;
-            using (CsvWriter csv = new CsvWriter(new StreamWriter(path), CultureInfo.CurrentCulture))
-            {
-                var db = BookStoreDB.GetContext();
-                foreach (var publisher in db.Publishers)
-                {
-                    csv.WriteField(publisher.ID);
-                    csv.WriteField(publisher.Name);
-                    csv.NextRecord();
-                }
-            }
-            MessageBox.Show("Экспорт завершён");
-        }
+      
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
             ThemeController.SwitchTheme();

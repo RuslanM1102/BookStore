@@ -22,6 +22,7 @@ namespace BookStore
                 InitializeComponent();
                 Instance = this;
             }
+            BookStoreDB.GetContext();
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)

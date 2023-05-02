@@ -20,7 +20,6 @@
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
-            
         </Setter>
 
 
@@ -46,8 +45,6 @@
         <Style.Resources>
             <Style TargetType="Border">
                 <Setter Property="CornerRadius" Value="3"/>
-                <Setter Property="BorderBrush" Value="Red"/>
-                <Setter Property="BorderThickness" Value="5"/>
             </Style>
         </Style.Resources>
     </Style>
@@ -95,6 +92,23 @@
         <Setter Property="Foreground" Value="{DynamicResource DefaultHeaderFColor}"/>
     </Style>
 
+    <Style x:Key="PropertyLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="Averia Libre"/>
+        <Setter Property="FontStyle" Value="Italic"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Background" Value="{DynamicResource DefaultButtonBColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultButtonFColor}"/>
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="8"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+
     <Style x:Key="DataGrid" TargetType="DataGrid" BasedOn="{StaticResource {x:Type DataGrid}}">
         <Setter Property="Background" Value="{DynamicResource DefaultBackground}"/>
         <Setter Property="CellStyle" Value="{DynamicResource GridCell}"/>
@@ -132,5 +146,27 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="ComboBox" TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
+        <Setter Property="Background" Value="{DynamicResource DefaultButtonBColor}"/>
+        <Setter Property="FontFamily" Value="Averia Libre"/>
+        <Setter Property="FontStyle" Value="Italic"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultButtonFColor}"/>
+        <Setter Property="ItemContainerStyle" Value="{DynamicResource ComboBoxItem}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="ComboBoxItem" TargetType="ComboBoxItem" BasedOn="{StaticResource {x:Type ComboBoxItem}}">
+        <Setter Property="Background" Value="{DynamicResource DefaultButtonBColor}"/>
+        <Setter Property="FontFamily" Value="Averia Libre"/>
+        <Setter Property="FontStyle" Value="Italic"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultButtonFColor}"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    
 
 </ResourceDictionary>

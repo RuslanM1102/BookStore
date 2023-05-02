@@ -35,6 +35,8 @@
             <Separator Opacity="0" MinHeight="5"/>
             <Button Style="{DynamicResource DefaultButton}" Height="50" Click="Tables_Click" Content="Таблицы"/>
             <Separator Opacity="0" MinHeight="5"/>
+            <Button Style="{DynamicResource DefaultButton}" Height="50" Click="Books_Click" Content="Книги"/>
+            <Separator Opacity="0" MinHeight="5"/>
             <Button Style="{DynamicResource DefaultButton}" Height="50" Content="Выйти" Click="Exit_Click"/>
         </StackPanel>
 

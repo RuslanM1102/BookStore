@@ -88,7 +88,7 @@ namespace BookStore.Pages.MainMenuPages
             }
             catch
             {
-                MessageBox.Show("Произошла непредвиденная ошибка");
+               MessageBox.Show("Произошла непредвиденная ошибка");
             }
         }
 

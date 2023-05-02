@@ -58,6 +58,11 @@ namespace BookStore
            MainFrame.Navigate(new TablePage());
         }
 
+        private void Books_Click(object sender, RoutedEventArgs e)
+        {
+           MainFrame.Navigate(new BooksPage());
+        }
+
       
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {

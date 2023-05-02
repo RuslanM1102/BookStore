@@ -63,15 +63,30 @@ namespace BookStore.Pages.MainMenuPages
                     dynamic selectorType = _selectors[i].GetType();
                     if (selectorType == typeof(ComboBox))
                     {
-                        ((ComboBox)_selectors[i]).SelectedIndex = prop.GetValue(_currentRecord);
+                        int id = prop.GetValue(_currentRecord);
+                        int j = 0;
+                        foreach (ComboBoxValue item in ((ComboBox)_selectors[i]).Items)
+                        {
+                            if(item.ID == id)
+                            {
+                                break;
+                            }
+                            j++;
+                        }
+                        ((ComboBox)_selectors[i]).SelectedIndex = j;
                     }
                     else if (selectorType == typeof(DatePicker))
                     {
                         ((DatePicker)_selectors[i]).SelectedDate = prop.GetValue(_currentRecord);
                     }
+                    else if (prop.PropertyType == typeof(bool))
+                    {
+                        ((CheckBox)_selectors[i]).IsChecked = prop.GetValue(_currentRecord);
+                    }
                     else
                     {
-                        ((TextBox)_selectors[i]).Text = prop.GetValue(_currentRecord).ToString();
+                        dynamic value = prop.GetValue(_currentRecord);
+                        ((TextBox)_selectors[i]).Text = value?.ToString();
                     }
                     i++;
                 }
@@ -102,6 +117,10 @@ namespace BookStore.Pages.MainMenuPages
                     {
                         prop.SetValue(_currentRecord, ((DatePicker)_selectors[i]).SelectedDate);
                     }
+                    else if (prop.PropertyType == typeof(bool))
+                    {
+                        prop.SetValue(_currentRecord, ((CheckBox)_selectors[i]).IsChecked);
+                    }
                     else
                     {
                         if (prop.Name == "ID")
@@ -120,6 +139,7 @@ namespace BookStore.Pages.MainMenuPages
                 {
                     _dbSet.Add(_currentRecord);
                 }
+
                 BookStoreDB.GetContext().SaveChanges();
                 NavigationService?.Navigate(new TablePage());
             }
@@ -156,9 +176,14 @@ namespace BookStore.Pages.MainMenuPages
                 }
              
             }
-            else if (prop.PropertyType == typeof(DateTime))
+            else if (prop.PropertyType == typeof(DateTime) || prop.PropertyType == typeof(DateTime?))
             {
                 selector = new DatePicker();
+            }
+            else if(prop.PropertyType == typeof(bool))
+            {
+                selector = new CheckBox();
+                selector.Style = FindResource("CheckBox") as Style;
             }
             else
             {

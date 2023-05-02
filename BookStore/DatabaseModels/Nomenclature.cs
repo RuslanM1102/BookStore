@@ -26,12 +26,13 @@ namespace BookStore.DatabaseModels
     
         public int ID { get; set; }
         public string Name { get; set; }
-        public System.DateTime ReleaseDate { get; set; }
+        public Nullable<System.DateTime> ReleaseDate { get; set; }
         public int Pages { get; set; }
         public int Quantity { get; set; }
         public int Price { get; set; }
         public int FormatID { get; set; }
         public int PublisherID { get; set; }
+        public string Photo { get; set; }
     
         public virtual Formats Formats { get; set; }
         public virtual Publishers Publishers { get; set; }

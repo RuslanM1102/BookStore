@@ -91,7 +91,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ReleaseDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ReleaseDate" Type="DateTime" Precision="0" />
     <Property Name="Pages" Type="Int32" Nullable="false" />
     <Property Name="Quantity" Type="Int32" Nullable="false" />
     <Property Name="Price" Type="Int32" Nullable="false" />
@@ -104,6 +104,7 @@
     <NavigationProperty Name="SellParts" Relationship="Self.FK_SellParts_Nomenclature" FromRole="Nomenclature" ToRole="SellParts" />
     <NavigationProperty Name="Authors" Relationship="Self.Nomenclature_Authors" FromRole="Nomenclature" ToRole="Authors" />
     <NavigationProperty Name="Genres" Relationship="Self.Nomenclature_Genres" FromRole="Nomenclature" ToRole="Genres" />
+    <Property Name="Photo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="OrderParts">
     <Key>

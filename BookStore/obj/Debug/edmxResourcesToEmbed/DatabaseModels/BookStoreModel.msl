@@ -82,6 +82,7 @@
     <EntitySetMapping Name="Nomenclature">
       <EntityTypeMapping TypeName="BookStoreModel.Nomenclature">
         <MappingFragment StoreEntitySet="Nomenclature">
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />

@@ -9,7 +9,28 @@
       Title="BooksPage">
 
     <Grid Background="{DynamicResource SubBackground}">
-        <ListView x:Name="ListBooks" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" Background="{DynamicResource DefaultBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Grid>
+                <TextBox x:Name="SearchBox" Style="{DynamicResource DefaultTextBox}" Width="200" Margin="5,5,5,0" FontSize="17" TextChanged="SearchBox_TextChanged"/>
+                <Label x:Name="SearchPlaceholder" Style="{DynamicResource Placeholder}" Content="Название" FontSize="17" VerticalContentAlignment="Center"/>
+            </Grid>
+            <Separator Width="5"/>
+            <ComboBox x:Name="OrderBox" Style="{DynamicResource ComboBox}" Width="200" Margin="5,5,5,0" FontSize="17" Text="Не выбрано" 
+                      IsEditable="True" IsReadOnly="True" SelectionChanged="OrderBox_SelectionChanged">
+                <ComboBoxItem Content="По возрастанию"/>
+                <ComboBoxItem Content="По убыванию"/>
+            </ComboBox>
+            <Separator Width="5"/>
+            <Label Style="{DynamicResource PropertyLabel}" Content="Только твёрдая обложка" FontSize="16"/>
+            <CheckBox x:Name="CheckFormat" Style="{DynamicResource CheckBox}" Click="CheckFormat_Click"/>
+            <Separator Width="5"/>
+            <Button Style="{DynamicResource DefaultButton}" Content="Очистить" Margin="5,5,5,0"/>
+        </StackPanel>
+        <ListView Grid.Row="1" x:Name="ListBooks" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" Background="{DynamicResource DefaultBackground}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"></WrapPanel>

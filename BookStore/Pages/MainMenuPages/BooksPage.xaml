@@ -15,20 +15,22 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <Grid>
-                <TextBox x:Name="SearchBox" Style="{DynamicResource DefaultTextBox}" Width="200" Margin="5,5,5,0" FontSize="17" TextChanged="SearchBox_TextChanged"/>
-                <Label x:Name="SearchPlaceholder" Style="{DynamicResource Placeholder}" Content="Название" FontSize="17" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="SearchBox" Style="{DynamicResource DefaultTextBox}" Width="200" Margin="5,5,5,0" FontSize="17" 
+                         TextChanged="SearchBox_TextChanged" VerticalContentAlignment="Center" Padding="0"/>
+                <Label x:Name="SearchPlaceholder" Style="{DynamicResource Placeholder}" Content="Название" Padding="0" FontSize="17" 
+                       VerticalContentAlignment="Center" Margin="10,5,0,0"/>
             </Grid>
-            <Separator Width="5"/>
+            <Separator Width="5" Background="Transparent"/>
             <ComboBox x:Name="OrderBox" Style="{DynamicResource ComboBox}" Width="200" Margin="5,5,5,0" FontSize="17" Text="Не выбрано" 
                       IsEditable="True" IsReadOnly="True" SelectionChanged="OrderBox_SelectionChanged">
                 <ComboBoxItem Content="По возрастанию"/>
                 <ComboBoxItem Content="По убыванию"/>
             </ComboBox>
-            <Separator Width="5"/>
+            <Separator Width="5" Background="Transparent"/>
             <Label Style="{DynamicResource PropertyLabel}" Content="Только твёрдая обложка" FontSize="16"/>
             <CheckBox x:Name="CheckFormat" Style="{DynamicResource CheckBox}" Click="CheckFormat_Click"/>
-            <Separator Width="5"/>
-            <Button Style="{DynamicResource DefaultButton}" Content="Очистить" Margin="5,5,5,0"/>
+            <Separator Width="5" Background="Transparent"/>
+            <Button Style="{DynamicResource DefaultButton}" Content="Очистить" Margin="5,5,5,0" Click="Button_Click"/>
         </StackPanel>
         <ListView Grid.Row="1" x:Name="ListBooks" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" Background="{DynamicResource DefaultBackground}">
             <ListView.ItemsPanel>

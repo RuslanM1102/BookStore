@@ -16,6 +16,12 @@ namespace BookStore.DatabaseModels
 
         public static dynamic GetItemsSource(DbSet dbSet) 
         {
+            string selected = GetSelectString(dbSet);
+            return dbSet.Select(selected).ToDynamicList();
+        }
+
+        public static string GetSelectString(DbSet dbSet)
+        {
             var props = ReflectionPropertyFinder.FindColumns(dbSet).Select(x => x.Name).ToList();
             var foreign = ReflectionPropertyFinder.FindForeignTables(dbSet).Select(x => x.Name).ToList();
             for (int i = 0; i < props.Count; i++)
@@ -29,7 +35,7 @@ namespace BookStore.DatabaseModels
                 if (name.Contains("ID"))
                 {
                     name = name.Replace("ID", "");
-                    string foreignName = foreign.Where(x => x.Contains(name.Substring(0,3))).FirstOrDefault();
+                    string foreignName = foreign.Where(x => x.Contains(name.Substring(0, 3))).FirstOrDefault();
                     if (foreignName != default)
                     {
                         string newName = NameGetter.GetName(dbSet.GetType().GetGenericArguments()[0], foreignName);
@@ -41,8 +47,7 @@ namespace BookStore.DatabaseModels
                 }
             }
 
-            var selected = "new {" + string.Join(",", props.ToArray()) + "}";
-            return dbSet.Select(selected).ToDynamicList();
+            return "new {" + string.Join(",", props.ToArray()) + "}";
         }
     }
 }

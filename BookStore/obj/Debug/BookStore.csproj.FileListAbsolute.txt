@@ -144,3 +144,5 @@ C:\Users\206934\Desktop\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\AddEdi
 C:\Users\206934\Desktop\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\TablePage.baml
 C:\Users\206934\Desktop\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\BooksPage.g.cs
 C:\Users\206934\Desktop\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\BooksPage.baml
+C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\BooksPage.g.cs
+C:\Users\Jack_Voron\Documents\GitHub\BookStore\BookStore\obj\Debug\Pages\MainMenuPages\BooksPage.baml

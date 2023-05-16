@@ -15,8 +15,6 @@ namespace BookStore.Pages.Auth
         public AuthorizationPage()
         {
             InitializeComponent();
-            new MainMenu().Show();
-            MainWindow.Instance.Close();
         }
         private void Login_TextChanged(object sender, TextChangedEventArgs e)
         {
